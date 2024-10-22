@@ -1,0 +1,134 @@
+.home-container{
+  padding: 0px;
+  background-color: white;
+  margin: 30px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+
+
+.nft-gallery-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0;
+  overflow: hidden;
+
+}
+
+.nft-gallery-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  max-width: 1200px;
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+
+}
+
+@media (max-width: 1300px) {
+  .nft-gallery-container{
+    width: 50%;
+  }
+}
+
+@media (max-width: 900px) {
+  .nft-gallery-container{
+    width: 60%;
+  }
+}
+
+@media (max-width: 700px) {
+  .nft-gallery-container{
+    width: 70%;
+  }
+}
+
+@media (max-width: 600px) {
+  .nft-gallery-container{
+    width: 80%;
+  }
+}
+
+@media (max-width: 500px) {
+  .nft-gallery-container{
+    width: 90%;
+  }
+}
+
+@media (max-width: 400px) {
+  .nft-gallery-container{
+    width: 95%;
+  }
+}
+
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.35);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 24px;
+
+  &.left {
+    left: 10px;
+  }
+
+  &.right {
+    right: 10px;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.40);
+  }
+}
+
+.nft-gallery {
+  display: flex;
+  transition: transform 0.5s ease-in-out; // Animazione fluida per lo scorrimento
+  width: 100%;
+}
+
+.nft-card {
+  flex: 0 0 100%; // Ogni card occupa il 100% della larghezza del container
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  h3 {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0;
+  }
+}

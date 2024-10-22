@@ -1,0 +1,174 @@
+$bluegradient: linear-gradient(to right, rgb(0, 0, 138), rgb(0, 0, 56));
+
+/* Styles for the footer */
+.footer {
+    background-color: rgba(83, 83, 83, 0.281);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-top: 150px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.social-media {
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.social {
+    font-size: 1.5rem;
+    color: white;
+    padding: 10px;
+    margin-bottom: 15px;
+    transition: color 0.5s ease;
+    color: rgba(0, 0, 0, 0.800);
+}
+
+#tw:hover {
+    color: #9b9b9b;
+}
+
+#insta:hover{
+    color: #C13584
+;
+}
+
+#linkedin:hover{
+    color: #0077B5
+    ;
+}
+
+#github:hover{
+  color: #9b9b9b;
+}
+
+
+.newsletter {
+    margin: 20px 0;
+    max-width: 600px;
+    margin-left: auto; // Centra la sezione orizzontalmente
+    margin-right: auto; // Centra la sezione orizzontalmente
+    margin-bottom: 50px;
+    color: rgba(0, 0, 0, 0.800);
+
+    h4 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      input {
+        flex: 1; // Permette all'input di occupare spazio disponibile
+        max-width: 300px; // Imposta una larghezza massima per l'input
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+
+      button {
+        padding: 12px 22px;
+        border: none;
+        border-radius: 5px;
+        background: $bluegradient;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+          background: linear-gradient(to right, rgb(0, 0, 114), rgb(0, 0, 36));; // Colore al passaggio del mouse
+        }
+      }
+    }
+  }
+
+  .personal-info {
+    display: flex;
+    justify-content: center;
+    align-items: center; // Allinea verticalmente
+    margin: 20px;
+    color: rgba(0, 0, 0, 0.800);
+  
+    .info-left {
+      margin-right: 20px; // Spazio tra logo e informazioni
+
+      .footer-logo {
+        width: 100px; // Larghezza del logo
+        height: auto; // Mantiene le proporzioni
+      }
+    }
+  
+    .info-right {
+      text-align: left; // Allinea il testo a sinistra
+      
+      h5 {
+        margin: 0; // Rimuovi margine
+        font-size: 18px; // Dimensione del nome
+      }
+  
+      p {
+        margin: 5px 0; // Margine per i paragrafi
+        font-size: 16px; // Dimensione del testo
+      }
+    }
+}
+
+.copy {
+  color: rgba(0, 0, 0, 0.800);
+}
+
+/* Stili generali per il pulsante "Contact Us" */
+.contact-button {
+    display: inline-block; /* Rende il pulsante inline-block per padding e margini */
+    background:  linear-gradient(to right, rgb(0, 0, 138), rgb(0, 0, 56));
+    color: white; /* Colore del testo bianco */
+    padding: 12px 24px; /* Padding interno per il pulsante */
+    border: none; /* Rimuove il bordo predefinito */
+    border-radius: 5px; /* Angoli arrotondati */
+    font-size: 16px; /* Dimensione del font */
+    font-weight: bold; /* Testo in grassetto */
+    text-align: center; /* Allinea il testo al centro */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+    transition: background-color 0.3s, transform 0.3s; /* Effetto di transizione */
+    margin: 20px;
+  }
+  
+  /* Effetto hover */
+  .contact-button:hover {
+    background-color: #45a049; /* Colore di sfondo più scuro al passaggio del mouse */
+    transform: translateY(-2px); /* Leggera elevazione al passaggio del mouse */
+  }
+  
+  /* Effetto focus */
+  .contact-button:focus {
+    outline: none; /* Rimuove il contorno predefinito */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5); /* Aggiunge un'ombra al focus */
+  }
+  
+  /* Responsività */
+  @media (max-width: 600px) {
+    .contact-button {
+      padding: 10px 20px; /* Riduce il padding su schermi più piccoli */
+      font-size: 14px; /* Dimensione del font ridotta */
+    }
+  }
+  

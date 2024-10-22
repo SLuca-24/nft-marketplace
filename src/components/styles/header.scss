@@ -1,0 +1,192 @@
+$bluegradient: linear-gradient(to right, rgb(0, 0, 138), rgb(0, 0, 56));
+$grey-color: rgb(182, 182, 182);
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+.header-div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 0px;
+    background-color: rgb(240, 240, 240);
+}
+
+
+
+.header-div img {
+    width: 56px;
+    transition: transform 0.3s ease;
+    animation: rotate 10s linear infinite;
+}
+
+.logo-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.logo-name h1 {
+  color: black;
+  transition: color 0.5s ease;
+  font-size: 1.5rem;
+  padding-left: 5px;
+}
+
+.logo-name h1:hover {
+  color: rgb(105, 105, 105);
+}
+
+.connectwalleticon {
+    position: relative;
+    font-size: 1.2rem;
+    margin-right: 30px;
+    border-radius: 10px;
+    padding: 15px;
+    background: $bluegradient;
+    transition: transform 0.3s ease;
+    animation: fadeInUp 0.8s ease-out;
+    transition: filter 0.3s ease;
+    animation-fill-mode: forwards;
+
+    color: $grey-color;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.connectwalleticon:hover {
+    cursor: pointer;
+    opacity: 10;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    filter: brightness(0.9);
+
+}
+
+.connectwalleticon:active {
+transform: scale(0.8);
+}
+
+.connectwalleticon-connected {
+  position: relative;
+  font-size: 1.2rem;
+  margin-right: 30px;
+  border-radius: 10px;
+  padding: 15px;
+  background: $bluegradient;
+  transition: transform 0.3s ease;
+  animation: fadeInUp 0.8s ease-out;
+  transition: filter 0.3s ease;
+  animation-fill-mode: forwards;
+  color: $grey-color;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.connectwalleticon-connected:hover {
+  cursor: pointer;
+  color: rgb(151, 151, 151);  
+}
+
+.connectwalleticon-connected:active {
+transform: scale(0.8);
+}
+
+#ethlogo {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+#ethlogo:hover {
+  color: rgb(151, 151, 151);
+}
+
+
+
+
+/* Stili per il background scuro */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.88);
+  z-index: 100;
+}
+
+/* Menu */
+.menu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 1001;
+  text-align: center;
+  font-size: 2rem;
+  word-break: break-all;
+  color: white;
+}
+
+
+
+.menu button {
+  background: none;
+  padding: 20px 0px;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.menu button:hover,
+.menu a:hover {
+  color: gray; 
+  cursor: pointer;
+}
+
+.menu button:active{
+  transform: scale(0.8);
+}
+
+.address {
+  padding: 20px 0px;
+}
+
+.balancee {
+  padding: 40px 0px;
+}
+
+
+@media (max-width: 630px){
+  .logo-name h1{
+    display: none;
+  }
+
+  .connectwalleticon, .connectwalleticon-connected{
+    font-size: 1rem;
+}
+}
