@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import './styles/ownerInfo.scss';
+import '../styles/ownerInfo.scss';
 
 const Home3 = () => {
 
@@ -14,7 +15,7 @@ const Home3 = () => {
   return (
     <>
       <div className="about-section">
-        <h1>NFT Collection</h1>
+        <h1>Owlchemy Collection</h1>
         <h2>A unique fusion of art and technology</h2>
         <h3>Discover who's the mind behind and his vision</h3>
         <div className="creator-info">
@@ -28,6 +29,7 @@ const Home3 = () => {
             <button className="toggle-button2" onClick={toggleDetails}>
               {showDetails ? 'Show Less' : 'Learn More'}
             </button>
+            
           </div>
         </div>
         {showDetails && (

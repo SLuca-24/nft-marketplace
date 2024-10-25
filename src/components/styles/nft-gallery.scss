@@ -1,0 +1,35 @@
+.nft-grid-container {
+  padding: 40px;
+  text-align: center;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #333;
+  }
+
+  .nft-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    justify-items: center;
+  }
+
+  .nft-card {
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .nft-image {
+      width: 100%;           // Larghezza al 100% per riempire il contenitore
+      height: auto;         // Mantiene le proporzioni
+      max-height: 300px;    // Limita l'altezza massima se necessario
+      object-fit: cover;    // Assicura che l'immagine riempia il contenitore
+    }
+  }
+}

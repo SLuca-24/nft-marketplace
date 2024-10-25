@@ -1,17 +1,17 @@
 import React from 'react';
-import './styles/footer.scss';
+import '../styles/footer.scss';
 import { BsInstagram } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
-import logo from './img/logo-black.png';
+import logo from '../img/logo-black.png';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const handleNewsletterSubmit = (e) => {
     e.preventDefault();
     const email = e.currentTarget.elements.namedItem('email').value;
-    console.log('Email:', email);
+    alert(`Thank you for singing up!\n You will recive our news on this email: ${email}`);
   };
 
   return (

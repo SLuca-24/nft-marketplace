@@ -1,11 +1,14 @@
 
 .smart-contract-page {
+  position: relative;
     max-width: 800px;
     margin: 100px auto;
     padding: 2rem;
     background-color: #f8f9facb;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+
 
 
     
@@ -42,6 +45,7 @@
         text-align: center;
       }
     }
+
   
     .footer {
       text-align: center;
@@ -74,7 +78,6 @@
       }
     }
   }
-
 
   @media (max-width: 890px){
     .smart-contract-page{

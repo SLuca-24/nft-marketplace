@@ -1,5 +1,6 @@
 import React from 'react';
-import './styles/smartContractInfo.css';
+import '../styles/smartContractInfo.css';
+
 
 
 const SmartContractInfo = () => {
@@ -10,6 +11,7 @@ const SmartContractInfo = () => {
         <h1>Smart Contracts</h1>
         <p>Our platform is managed by our team, but all transactions are entirely decentralized.</p>
       </header>
+      
 
       <section className="description">
         <h2>Total Decentralization</h2>

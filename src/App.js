@@ -1,15 +1,16 @@
 // App.js
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Header from './components/Header';
-import Home from './components/Home';
-import Home2 from './components/Home copy'
-import Home3 from './components/home3'
-import Account from './components/account'
-import NFTInfo from './components/About';
-import SmartContractInfo from './components/smart-contract'
-import Contact from './components/Contact';
-import Footer from './components/footer';
-import PurchaseHistory from './components/purchaseHistory'
+import Header from './components/pages/Header';
+import TopNft1 from './components/pages/Top-Nft-1';
+import TopNft2 from './components/pages/Top-Nft-2'
+import HomeOwnerInfo from './components/pages/Home-Owner-Info'
+import NavBar from './components/pages/NavBar'
+import NFTInfo from './components/pages/Nft-Info';
+import SmartContractInfo from './components/pages/SmartContracts-Info-Page'
+import Contact from './components/pages/Contact';
+import Footer from './components/pages/Footer';
+import PurchaseHistory from './components/pages/PurchaseHistory'
+import NftGallery from './components/pages/Nft-Gallery'
 import { WalletProvider } from './components/context/WalletContext';
 import './components/styles/app.scss';
 
@@ -18,7 +19,7 @@ function App() {
     <Router>
       <WalletProvider>
         <Header />
-        <Account />
+        <NavBar />
 
         <Routes>
           <Route path="/" element={<HomeWrapper />} />
@@ -26,6 +27,7 @@ function App() {
           <Route path="/purchase-history" element={<PurchaseHistory />} />
           <Route path="/smart-contract-info" element={<SmartContractInfo />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/gallery" element={<NftGallery />} />
         </Routes>
          
         <Footer />
@@ -38,10 +40,10 @@ function HomeWrapper() {
   return (
     <>
     <div className='home-container'>
-      <Home />
-      <Home2 />
+      <TopNft1 />
+      <TopNft2 />
     </div>
-    <Home3 />
+      <HomeOwnerInfo />
     </>
   );
 }

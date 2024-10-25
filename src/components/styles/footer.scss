@@ -86,15 +86,18 @@ $bluegradient: linear-gradient(to right, rgb(0, 0, 138), rgb(0, 0, 56));
       }
 
       button {
-        padding: 12px 22px;
-        border: none;
+        padding: 8px 18px;
         border-radius: 5px;
-        background: $bluegradient;
+        background: #007bff;;
         color: white;
         cursor: pointer;
+        background-color: #007bff;
+        border-color: #007bff;
+        font-weight: 500;
+        transition: background-color 0.3s;
 
         &:hover {
-          background: linear-gradient(to right, rgb(0, 0, 114), rgb(0, 0, 36));; // Colore al passaggio del mouse
+          background-color: #0056b3;
         }
       }
     }
@@ -154,16 +157,10 @@ $bluegradient: linear-gradient(to right, rgb(0, 0, 138), rgb(0, 0, 56));
   
   /* Effetto hover */
   .contact-button:hover {
-    background-color: #45a049; /* Colore di sfondo più scuro al passaggio del mouse */
     transform: translateY(-2px); /* Leggera elevazione al passaggio del mouse */
   }
   
-  /* Effetto focus */
-  .contact-button:focus {
-    outline: none; /* Rimuove il contorno predefinito */
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5); /* Aggiunge un'ombra al focus */
-  }
-  
+
   /* Responsività */
   @media (max-width: 600px) {
     .contact-button {

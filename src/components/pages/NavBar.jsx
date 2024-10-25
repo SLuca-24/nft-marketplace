@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom'
-import './styles/account.scss'
+import '../styles/account.scss'
 import { IoHome } from "react-icons/io5";
 import { BiSolidPurchaseTag } from "react-icons/bi";
 import { RiContractFill } from "react-icons/ri";
-import { IoMdHelpCircle } from "react-icons/io";
+import { LuGalleryVerticalEnd } from "react-icons/lu";
 
 const Account = () => {
   const location = useLocation();
@@ -30,9 +30,9 @@ const Account = () => {
       </div>
       </Link>
 
-      <Link to="/contact">
-      <div className={`icon-item ${location.pathname === '/contact' ? 'active' : ''}`}>
-        <IoMdHelpCircle />  
+      <Link to="/gallery">
+      <div className={`icon-item ${location.pathname === '/gallery' ? 'active' : ''}`}>
+      <LuGalleryVerticalEnd />  
       </div>
       </Link>
     </div>

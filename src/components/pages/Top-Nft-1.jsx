@@ -1,16 +1,15 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import NFT4 from './img/f.png';
-import NFT5 from './img/h.png';
-import NFT6 from './img/a.png';
-import './styles/ownerInfo.scss';
+import '../styles/ownerInfo.scss';
+import { NFTData } from '../nftData'; 
 
-const Home = () => {
-  const NFTs = [
-    { id: 4, title: 'PAG #331', imageUrl: NFT4 },
-    { id: 5, title: 'PAG #111', imageUrl: NFT5 },
-    { id: 6, title: 'PAG #1000', imageUrl: NFT6 },
-  ];
+
+const TopNft1 = () => {
+  const NFTs = [1, 2, 3].map(id => ({
+    id,
+    title: NFTData[id].title,
+    imageUrl: NFTData[id].imageUrl,
+  }));
 
   const galleryRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0); // Mantiene l'indice dell'NFT corrente
@@ -25,12 +24,6 @@ const Home = () => {
     if (currentIndex < NFTs.length - 1) {
       setCurrentIndex(currentIndex + 1);
     }
-  };
-
-  const [showDetails, setShowDetails] = useState(false);
-
-  const toggleDetails = () => {
-    setShowDetails(!showDetails);
   };
 
   return (
@@ -59,4 +52,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default TopNft1;

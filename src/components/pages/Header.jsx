@@ -1,8 +1,8 @@
 import React from 'react';
-import logo from './img/logo-black.png';
+import logo from '../img/logo-black.png';
 import { MdCancel } from "react-icons/md";
-import { useWallet } from './context/WalletContext'; 
-import './styles/header.scss'
+import { useWallet } from '../context/WalletContext'; 
+import '../styles/header.scss'
 import { Link } from 'react-router-dom';
 
 const Header = () => {

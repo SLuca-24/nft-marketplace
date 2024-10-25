@@ -1,63 +1,115 @@
 .purchase-history {
-    padding: 20px;
+  padding: 20px;
+  font-size: 1.5rem;
+}
 
-  }
-  
-  .orders-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Spaziatura tra gli ordini */
-  }
-  
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.order-item:hover {
+  transform: translateY(-3px); /* Sollevamento al passaggio del mouse */
+}
+
+.order-image {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 8px; /* Aggiunge angoli arrotondati all'immagine */
+}
+
+.order-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-title {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
+}
+
+.order-date, .order-price {
+  margin: 5px 0;
+  color: #666;
+  font-size: 16px;
+}
+
+.Connect-Wallet-Error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  max-width: 600px;
+  margin: 150px auto;
+}
+
+.Connect-Wallet-Error:hover {
+  background-color: #f5c6cb;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 800px) {
   .order-item {
-    display: flex;
-    align-items: center;
-    background-color: white;
     padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .order-image {
-    width: 100px; /* Dimensione fissa per l'immagine */
-    height: auto; /* Mantiene le proporzioni dell'immagine */
-    margin-right: 15px; /* Spazio tra l'immagine e i dettagli */
-  }
-  
-  .order-details {
-    display: flex;
     flex-direction: column;
+    align-items: flex-start;
   }
-  
-  .order-title {
-    margin: 0; /* Rimuove il margine predefinito */
-    font-size: 18px;
-  }
-  
-  .order-date, .order-price {
-    margin: 5px 0; /* Spaziatura verticale tra le righe */
-    color: #555; /* Colore del testo */
+
+  .order-image {
+    width: 80px;
+    margin-right: 0;
+    margin-bottom: 10px;
   }
 
   .Connect-Wallet-Error {
-    background-color: #f8d7da; /* Colore di sfondo rosato */
-    color: #721c24; /* Colore del testo rosso scuro */
-    border: 1px solid #f5c6cb; /* Bordo rosato */
-    border-radius: 5px; /* Angoli arrotondati */
-    padding: 15px; /* Spaziatura interna */
-    margin: 20px 0; /* Margine sopra e sotto */
-    font-size: 1.2em; /* Dimensione del testo */
-    font-weight: bold; /* Testo in grassetto */
-    text-align: center; /* Allineamento del testo al centro */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombra leggera */
-    transition: all 0.3s ease; /* Transizione per effetti */
-    margin: 150px 0px;
+    margin: 100px auto;
+    padding: 15px;
   }
-  
-  .Connect-Wallet-Error:hover {
-    background-color: #f5c6cb; /* Colore di sfondo al passaggio del mouse */
-    transform: translateY(-3px); /* Sollevamento leggero */
+}
+
+@media (max-width: 600px) {
+  .order-title {
+    font-size: 18px;
   }
-  
-  
+
+  .order-date, .order-price {
+    font-size: 14px;
+  }
+
+  .Connect-Wallet-Error {
+    font-size: 1em;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 450px) {
+  .order-image {
+    width: 60px;
+  }
+
+  .Connect-Wallet-Error {
+    font-size: 0.9em;
+    padding: 10px;
+  }
+}

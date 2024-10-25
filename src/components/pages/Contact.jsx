@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './styles/contact.css';
-import { useWallet } from './context/WalletContext';
-import emailjs from 'emailjs-com';
+import '../styles/contact.css';
+import { useWallet } from '../context/WalletContext';
+
 
 const ContactForm = () => {
   const { isWalletConnected } = useWallet();
@@ -14,28 +14,21 @@ const ContactForm = () => {
     e.preventDefault();
 
     if (!isWalletConnected) {
-      alert('Devi connettere il tuo wallet per inviare il modulo.');
+      alert('You have to connect you wallet to send the form');
       return;
     }
 
-    const templateParams = {
-      name,
-      email,
-      phone,
-      description,
-    };
+    // Logga i dati del modulo nella console
+    console.log('Data:', { name, email, phone, description });
 
-    // Invia l'email
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams, 'YOUR_USER_ID')
-      .then((response) => {
-        console.log('Email inviata con successo!', response.status, response.text);
-        setName('');
-        setEmail('');
-        setPhone('');
-        setDescription('');
-      }, (error) => {
-        console.error('Errore nell\'invio dell\'email:', error);
-      });
+    // Mostra un messaggio di ringraziamento
+    alert('Thank you for reporting!\n We will back to you as soon as possible');
+
+    // Pulisci il modulo
+    setName('');
+    setEmail('');
+    setPhone('');
+    setDescription('');
   };
 
   return (
