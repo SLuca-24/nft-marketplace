@@ -5,7 +5,7 @@ import { NFTData } from '../nftData';
 
 
 const TopNft2 = () => {
-  const NFTs = [4, 5, 6].map(id => ({
+  const NFTs = [4, 18, 20].map(id => ({
     id,
     title: NFTData[id].title,
     imageUrl: NFTData[id].imageUrl,

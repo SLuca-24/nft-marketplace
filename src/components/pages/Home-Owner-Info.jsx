@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
 import '../styles/ownerInfo.scss';
 
 const Home3 = () => {
@@ -15,13 +13,13 @@ const Home3 = () => {
   return (
     <>
       <div className="about-section">
-        <h1>Owlchemy Collection</h1>
-        <h2>A unique fusion of art and technology</h2>
+        <h1>Demetra Collection</h1>
+        <h2>A unique fusion of art and sustainable footwear</h2>
         <h3>Discover who's the mind behind and his vision</h3>
         <div className="creator-info">
           <div className="buttons">
             <button
-              className="toggle-button1"
+              className="toggle-button-luca"
               onClick={() => window.open('https://sluca-24.github.io/', '_blank')}
             >
               Luca Sannia

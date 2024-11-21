@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom'
-import '../styles/account.scss'
+import '../styles/nav-bar.scss'
 import { IoHome } from "react-icons/io5";
-import { BiSolidPurchaseTag } from "react-icons/bi";
-import { RiContractFill } from "react-icons/ri";
+import { BiSolidPurchaseTag } from "react-icons/bi"
 import { LuGalleryVerticalEnd } from "react-icons/lu";
+import { PiSwapBold } from "react-icons/pi";
 
 const Account = () => {
   const location = useLocation();
@@ -24,9 +24,9 @@ const Account = () => {
       </div>
       </Link>
       
-      <Link to="/smart-contract-info">
-      <div className={`icon-item ${location.pathname === '/smart-contract-info' ? 'active' : ''}`}>
-        <RiContractFill />  
+      <Link to="/swap">
+      <div className={`icon-item ${location.pathname === '/swap' ? 'active' : ''}`}>
+      <PiSwapBold />
       </div>
       </Link>
 

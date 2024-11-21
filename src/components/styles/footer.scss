@@ -1,171 +1,119 @@
-$bluegradient: linear-gradient(to right, rgb(0, 0, 138), rgb(0, 0, 56));
-
-/* Styles for the footer */
 .footer {
-    background-color: rgba(83, 83, 83, 0.281);
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    margin-top: 150px;
+  background-color: #1a202c;
+  color: white;
+  padding: 2rem 0;
+  margin-top: 2.5rem;
 }
 
 .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.social-media {
-    margin-bottom: 20px;
-}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile-first */
+  gap: 3rem;
 
-.social-icon {
-    margin: 0 10px;
-    display: inline-block;
-}
-
-.social-icon img {
-    width: 24px;
-    height: 24px;
-}
-
-.social {
-    font-size: 1.5rem;
-    color: white;
-    padding: 10px;
-    margin-bottom: 15px;
-    transition: color 0.5s ease;
-    color: rgba(0, 0, 0, 0.800);
-}
-
-#tw:hover {
-    color: #9b9b9b;
-}
-
-#insta:hover{
-    color: #C13584
-;
-}
-
-#linkedin:hover{
-    color: #0077B5
-    ;
-}
-
-#github:hover{
-  color: #9b9b9b;
-}
-
-
-.newsletter {
-    margin: 20px 0;
-    max-width: 600px;
-    margin-left: auto; // Centra la sezione orizzontalmente
-    margin-right: auto; // Centra la sezione orizzontalmente
-    margin-bottom: 50px;
-    color: rgba(0, 0, 0, 0.800);
-
-    h4 {
-      margin-bottom: 10px;
-      font-size: 1.5rem;
-    }
-
-    .newsletter-form {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      input {
-        flex: 1; // Permette all'input di occupare spazio disponibile
-        max-width: 300px; // Imposta una larghezza massima per l'input
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin-right: 10px;
-      }
-
-      button {
-        padding: 8px 18px;
-        border-radius: 5px;
-        background: #007bff;;
-        color: white;
-        cursor: pointer;
-        background-color: #007bff;
-        border-color: #007bff;
-        font-weight: 500;
-        transition: background-color 0.3s;
-
-        &:hover {
-          background-color: #0056b3;
-        }
-      }
-    }
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr); /* sm: 2 colonne */
   }
 
-  .personal-info {
-    display: flex;
-    justify-content: center;
-    align-items: center; // Allinea verticalmente
-    margin: 20px;
-    color: rgba(0, 0, 0, 0.800);
-  
-    .info-left {
-      margin-right: 20px; // Spazio tra logo e informazioni
-
-      .footer-logo {
-        width: 100px; // Larghezza del logo
-        height: auto; // Mantiene le proporzioni
-      }
-    }
-  
-    .info-right {
-      text-align: left; // Allinea il testo a sinistra
-      
-      h5 {
-        margin: 0; // Rimuovi margine
-        font-size: 18px; // Dimensione del nome
-      }
-  
-      p {
-        margin: 5px 0; // Margine per i paragrafi
-        font-size: 16px; // Dimensione del testo
-      }
-    }
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr); /* lg: 4 colonne */
+  }
 }
 
-.copy {
-  color: rgba(0, 0, 0, 0.800);
+.footer-section {
+  display: flex;
+  flex-direction: column;
 }
 
-/* Stili generali per il pulsante "Contact Us" */
-.contact-button {
-    display: inline-block; /* Rende il pulsante inline-block per padding e margini */
-    background:  linear-gradient(to right, rgb(0, 0, 138), rgb(0, 0, 56));
-    color: white; /* Colore del testo bianco */
-    padding: 12px 24px; /* Padding interno per il pulsante */
-    border: none; /* Rimuove il bordo predefinito */
-    border-radius: 5px; /* Angoli arrotondati */
-    font-size: 16px; /* Dimensione del font */
-    font-weight: bold; /* Testo in grassetto */
-    text-align: center; /* Allinea il testo al centro */
-    text-decoration: none; /* Rimuove la sottolineatura */
-    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
-    transition: background-color 0.3s, transform 0.3s; /* Effetto di transizione */
-    margin: 20px;
-  }
-  
-  /* Effetto hover */
-  .contact-button:hover {
-    transform: translateY(-2px); /* Leggera elevazione al passaggio del mouse */
-  }
-  
+.footer-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
 
-  /* Responsività */
-  @media (max-width: 600px) {
-    .contact-button {
-      padding: 10px 20px; /* Riduce il padding su schermi più piccoli */
-      font-size: 14px; /* Dimensione del font ridotta */
-    }
+.footer-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #007bff; /* colore per hover, simile al primary */
   }
-  
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social-link {
+  color: white;
+  transition: color 0.3s ease;
+
+  &.facebook:hover {
+    color: #3b5998; /* Facebook */
+  }
+
+  &.x:hover {
+    color: #4b4b4b; /* X (ex Twitter) */
+  }
+
+  &.linkedin:hover {
+    color: #0077b5; /* LinkedIn */
+  }
+
+  &.instagram:hover {
+    color: #e4405f; /* Instagram */
+  }
+}
+
+.footer-social-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.footer-description {
+  margin-bottom: 1rem;
+}
+
+.footer-button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+.footer-rights {
+  grid-column: span 1;
+  text-align: center;
+  margin-top: 1rem;
+  @media (min-width: 640px) {
+    text-align: left;
+  }
+}
+
+.footer-rights-text {
+  font-size: 0.875rem;
+  color: #d1d5db; /* text-gray-300 */
+}

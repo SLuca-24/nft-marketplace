@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,6 +7,48 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(240, 240, 240);
+}
+
+@media (max-width: 405px) {
+  body{
+    width:  102%;
+  }
+}
+
+@media (max-width: 395px) {
+  body{
+    width:  105%;
+  }
+}
+
+@media (max-width: 380px) {
+  body{
+    width:  106%;
+  }
+}
+
+@media (max-width: 365px) {
+  body{
+    width:  110%;
+  }
+}
+
+@media (max-width: 355px) {
+  body{
+    width:  112%;
+  }
+}
+
+@media (max-width: 340px) {
+  body{
+    width:  118%;
+  }
+}
+
+@media (max-width: 330px) {
+  body{
+    width:  122%;
+  }
 }
 
 code {

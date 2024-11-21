@@ -1,163 +1,165 @@
-import NFT1 from './img/owl1.svg';
-import NFT2 from './img/owl2.svg';
-import NFT3 from './img/owl3.svg';
-import NFT4 from './img/owl4.svg';
-import NFT5 from './img/owl5.svg';
-import NFT6 from './img/owl6.svg';
-import NFT7 from './img/owl7.svg';
-import NFT8 from './img/owl8.svg';
-import NFT9 from './img/owl9.svg';
-import NFT10 from './img/owl10.svg';
-import NFT11 from './img/owl11.svg';
-import NFT12 from './img/owl12.svg';
-import NFT13 from './img/owl13.svg';
-import NFT14 from './img/owl14.svg';
-import NFT15 from './img/owl15.svg';
-import NFT16 from './img/owl16.svg';
-import NFT17 from './img/owl17.svg';
-import NFT18 from './img/owl18.svg';
-import NFT19 from './img/owl19.svg';
-import NFT20 from './img/owl20.svg';
+import NFT1 from './img/1.png';
+import NFT2 from './img/2.png';
+import NFT3 from './img/3.png';
+import NFT4 from './img/4.png';
+import NFT5 from './img/5.png';
+import NFT6 from './img/6.png';
+import NFT7 from './img/7.png';
+import NFT8 from './img/8.png';
+import NFT9 from './img/9.png';
+import NFT10 from './img/10.png';
+import NFT11 from './img/11.png';
+import NFT12 from './img/12.png';
+import NFT13 from './img/13.png';
+import NFT14 from './img/14.png';
+import NFT15 from './img/15.png';
+import NFT16 from './img/16.png';
+import NFT17 from './img/17.png';
+import NFT18 from './img/18.png';
+import NFT19 from './img/19.png';
+import NFT20 from './img/20.png';
+
 
 export const NFTData = {
   1: {
-    title: 'OWL #381',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #381',
+    description: 'These running shoes combine recycled materials with a sleek design, reducing waste while maximizing performance. Each step brings you closer to a more sustainable future.',
     imageUrl: NFT1,
-    price: '2 ETH',
-    date: '2024-01-15',
+    price: '0.0001',
+    isSoldOut: false,
   },
   2: {
-    title: 'OWL #975',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #975',
+    description: 'Built for eco-conscious runners, these shoes use plant-based fibers and responsibly sourced rubber for an environmentally friendly, high-performance running experience.',
     imageUrl: NFT2,
-    price: '3.5 ETH',
-    date: '2024-02-20',
+    price: '0.0002',
+    isSoldOut: false,
   },
   3: {
-    title: 'OWL #654',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #654',
+    description: 'Crafted from recycled plastic bottles, these running shoes are lightweight and breathable, reducing plastic waste with every pair and enhancing running comfort.',
     imageUrl: NFT3,
-    price: '1.8 ETH',
-    date: '2024-03-05',
+    price: '0.0003',
+    isSoldOut: false,
   },
   4: {
-    title: 'OWL #331',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #331',
+    description: 'Made for the eco-runner, these shoes incorporate recycled cotton and biodegradable soles, delivering both sustainability and durability on the track.',
     imageUrl: NFT4,
-    price: '4 ETH',
-    date: '2024-04-12',
+    price: '0.0004',
+    isSoldOut: false,
   },
   5: {
-    title: 'OWL #111',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #111',
+    description: 'Innovatively crafted from algae foam and organic cotton, these shoes are comfortable, stylish, and kind to the environment with minimal carbon emissions.',
     imageUrl: NFT5,
-    price: '5 ETH',
-    date: '2024-05-20',
+    price: '0.0005',
+    isSoldOut: false,
   },
   6: {
-    title: 'OWL #180',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #180',
+    description: 'Designed with sustainability in mind, these shoes use bamboo and recycled rubber, offering a comfortable and eco-friendly running experience every step of the way.',
     imageUrl: NFT6,
-    price: '6.2 ETH',
-    date: '2024-06-01',
+    price: '0.0006',
+    isSoldOut: false,
   },
   7: {
-    title: 'OWL #251',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #251',
+    description: 'Crafted using recycled polyester, these shoes are lightweight and breathable, reducing environmental impact without sacrificing quality or style on your daily runs.',
     imageUrl: NFT7,
-    price: '3.1 ETH',
-    date: '2024-06-15',
+    price: '0.0007',
+    isSoldOut: false,
   },
   8: {
-    title: 'OWL #512',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #512',
+    description: 'Combining organic wool and sustainably harvested rubber, these shoes offer durability and eco-consciousness in every stride, promoting a healthier planet with each step.',
     imageUrl: NFT8,
-    price: '2.9 ETH',
-    date: '2024-07-10',
+    price: '0.0008',
+    isSoldOut: false,
   },
   9: {
-    title: 'OWL #897',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #897',
+    description: 'Featuring a blend of recycled textiles and low-impact dyes, these shoes are made to minimize waste while ensuring high-quality performance for serious runners.',
     imageUrl: NFT9,
-    price: '5.7 ETH',
-    date: '2024-08-05',
+    price: '0.0009',
+    isSoldOut: false,
   },
   10: {
-    title: 'OWL #352',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #352',
+    description: 'These eco-friendly shoes incorporate natural cork and recycled fabrics, providing comfort and sustainability, perfect for runners focused on protecting the environment.',
     imageUrl: NFT10,
-    price: '1.6 ETH',
-    date: '2024-09-01',
+    price: '0.0001',
+    isSoldOut: false,
   },
   11: {
-    title: 'OWL #432',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #432',
+    description: 'These lightweight running shoes feature organic hemp and recycled rubber, perfect for runners seeking performance and style with an eco-friendly approach.',
     imageUrl: NFT11,
-    price: '4.4 ETH',
-    date: '2024-09-20',
+    price: '0.0002',
+    isSoldOut: false,
   },
   12: {
-    title: 'OWL #123',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #123',
+    description: 'Using innovative plant-based materials, these running shoes provide excellent support and help reduce your carbon footprint with every mile you run.',
     imageUrl: NFT12,
-    price: '3.8 ETH',
-    date: '2024-10-15',
+    price: '0.0003',
+    isSoldOut: false,
   },
   13: {
-    title: 'OWL #789',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #789',
+    description: 'Designed with the earth in mind, these shoes utilize vegan leather and recycled components, offering a sustainable alternative to traditional running shoes.',
     imageUrl: NFT13,
-    price: '2.5 ETH',
-    date: '2024-11-10',
+    price: '0.0004',
+    isSoldOut: false,
   },
   14: {
-    title: 'OWL #564',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #564',
+    description: 'These shoes combine durability with sustainability, made from recycled plastic and natural rubber, ideal for runners who prioritize the environment.',
     imageUrl: NFT14,
-    price: '3.3 ETH',
-    date: '2024-12-01',
+    price: '0.0005',
+    isSoldOut: false,
   },
   15: {
-    title: 'OWL #103',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #103',
+    description: 'Crafted with minimal impact in mind, these shoes are made from organic fabrics and recycled parts, perfect for the mindful runner who values eco-friendliness.',
     imageUrl: NFT15,
-    price: '4.1 ETH',
-    date: '2024-12-20',
+    price: '0.0006',
+    isSoldOut: false,
   },
   16: {
-    title: 'OWL #489',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #489',
+    description: 'Each pair of these shoes uses recycled rubber soles and organic cotton uppers, balancing sustainability with durability for runners looking to reduce their footprint.',
     imageUrl: NFT16,
-    price: '3.6 ETH',
-    date: '2025-01-05',
+    price: '0.0007',
+    isSoldOut: false,
   },
   17: {
-    title: 'OWL #259',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #259',
+    description: 'These shoes incorporate renewable resources like bamboo and recycled textiles, offering a lightweight and comfortable choice for environmentally aware athletes.',
     imageUrl: NFT17,
-    price: '5.2 ETH',
-    date: '2025-01-25',
+    price: '0.0001',
+    isSoldOut: false,
   },
   18: {
-    title: 'OWL #615',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #615',
+    description: 'Constructed with earth-friendly materials, these shoes offer style and support while helping to reduce waste and emissions in the footwear industry.',
     imageUrl: NFT18,
-    price: '6 ETH',
-    date: '2025-02-15',
+    price: '0.0009',
+    isSoldOut: false,
   },
   19: {
-    title: 'OWL #719',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #719',
+    description: 'Made for sustainability, these shoes feature renewable materials and eco-friendly production, ensuring your run has minimal impact on the planet’s resources.',
     imageUrl: NFT19,
-    price: '3.7 ETH',
-    date: '2025-03-01',
+    price: '0.0001',
+    isSoldOut: false,
   },
   20: {
-    title: 'OWL #444',
-    description: 'The Bitcoin Owl symbolizes the fusion of wisdom and decentralization...',
+    title: 'DMT #444',
+    description: 'Innovatively made from recycled ocean plastics, these running shoes provide superior comfort and performance while tackling pollution one step at a time.',
     imageUrl: NFT20,
-    price: '4.8 ETH',
-    date: '2025-03-20',
+    price: '0.0001',
+    isSoldOut: false,
   },
 };
+

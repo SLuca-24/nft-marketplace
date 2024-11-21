@@ -1,6 +1,7 @@
 .purchase-history {
   padding: 20px;
   font-size: 1.5rem;
+  margin-bottom: 260px;
 }
 
 .orders-list {
@@ -21,19 +22,20 @@
 }
 
 .order-item:hover {
-  transform: translateY(-3px); /* Sollevamento al passaggio del mouse */
+  transform: translateY(-3px);
 }
 
 .order-image {
   width: 100px;
   height: auto;
   margin-right: 20px;
-  border-radius: 8px; /* Aggiunge angoli arrotondati all'immagine */
+  border-radius: 8px;
 }
 
 .order-details {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .order-title {
@@ -41,12 +43,15 @@
   font-size: 20px;
   color: #333;
   font-weight: bold;
+  padding-bottom: 2px;
 }
 
 .order-date, .order-price {
   margin: 5px 0;
   color: #666;
   font-size: 16px;
+  display: inline-block;
+
 }
 
 .Connect-Wallet-Error {
@@ -62,6 +67,7 @@
   transition: all 0.3s ease;
   max-width: 600px;
   margin: 150px auto;
+  margin-bottom: 260px;
 }
 
 .Connect-Wallet-Error:hover {
@@ -72,13 +78,12 @@
 @media (max-width: 800px) {
   .order-item {
     padding: 15px;
-    flex-direction: column;
     align-items: flex-start;
   }
 
   .order-image {
     width: 80px;
-    margin-right: 0;
+    margin-right: 20;
     margin-bottom: 10px;
   }
 
@@ -113,3 +118,13 @@
     padding: 10px;
   }
 }
+
+@media (max-width: 350px) {
+  .order-item {
+    flex-direction: column;
+    padding: 15px;
+    align-items: flex-start;
+  }
+}
+
+

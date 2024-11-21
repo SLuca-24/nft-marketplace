@@ -23,7 +23,7 @@ const Header = () => {
           <Link to="/"> 
           <img src={logo} alt='logo'/>
           </Link>
-          <h1>Owlchemy</h1>
+          <h1>Demetra</h1>
         </div>
           <div className='connectwalleticon' onClick={connectWallet}>
             Connect Wallet

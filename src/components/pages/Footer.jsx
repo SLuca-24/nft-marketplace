@@ -1,80 +1,59 @@
-import React from 'react';
-import '../styles/footer.scss';
-import { BsInstagram } from "react-icons/bs";
-import { FaLinkedin } from "react-icons/fa6";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaGithub } from "react-icons/fa";
-import logo from '../img/logo-black.png';
+import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { FaXTwitter } from "react-icons/fa6";
+import '../styles/footer.scss'
 
-const Footer = () => {
-  const handleNewsletterSubmit = (e) => {
-    e.preventDefault();
-    const email = e.currentTarget.elements.namedItem('email').value;
-    alert(`Thank you for singing up!\n You will recive our news on this email: ${email}`);
-  };
-
+function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
+        <div className="footer-grid">
 
-      <div className="newsletter">
-          <h4>Subscribe to our newsletter to stay up to date!</h4>
-          <form onSubmit={handleNewsletterSubmit} className="newsletter-form">
-            <input type="email" name="email" placeholder="Your email address" required />
-            <button type="submit">Sign Up</button>
-          </form>
-        </div>
-
-
-        <div className="social-media">
-          <a href="https://x.com/lucasanniaxx" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="social-icon">
-            <FaXTwitter className='social' id='tw' />
-          </a>
-          <a href="https://www.instagram.com/lucasanniaa/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-icon">
-            <BsInstagram className='social' id='insta' />
-          </a>
-          <a href="https://www.linkedin.com/in/luca-sannia-376871309/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-icon">
-            <FaLinkedin className='social' id='linkedin' />
-          </a>
-          <a href="https://www.linkedin.com/in/luca-sannia-376871309/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-icon">
-            <FaGithub className='social' id='github' />
-          </a>
-        </div>
-
-
-
-
-
-        {/* Nuova sezione per informazioni personali */}
-        <div className="personal-info">
-          <div className="info-left">
-            <img src={logo} alt="Logo" className="footer-logo" />
+          <div className="footer-section">
+            <h4 className="footer-title">Information</h4>
+            <ul className="footer-list">
+              <li><a href="#faq" className="footer-link">FAQ</a></li>
+              <li><a href="#about-us" className="footer-link">About Us</a></li>
+              <li><a href="#reviews" className="footer-link">Feedback</a></li>
+            </ul>
           </div>
-          <div className="info-right">
-            <h5>Luca Sannia</h5>
-            <p>luca.sannia@lucasannia.it</p>
-            <p>12 Corso Genova, Rome, Italy</p>
+
+
+          <div className="footer-section">
+            <h4 className="footer-title">Follow Us</h4>
+            <div className="footer-social-links">
+              <a href="https://www.facebook.com/profile.php?id=100074200375451&locale=it_IT" target="_blank" className="footer-social-link facebook">
+                <FaFacebookF className="footer-social-icon" />
+              </a>
+              <a href="https://x.com/lucasanniaxx" target="_blank" className="footer-social-link x">
+                <FaXTwitter className="footer-social-icon" />
+              </a>
+              <a href="https://www.linkedin.com/in/luca-sannia-376871309/" target="_blank" className="footer-social-link linkedin">
+                <FaLinkedinIn className="footer-social-icon" />
+              </a>
+              <a href="https://www.instagram.com/lucasanniaa/" target="_blank" className="footer-social-link instagram">
+                <FaInstagram className="footer-social-icon" />
+              </a>
+            </div>
           </div>
-        </div>
 
 
-        <div>
-          <Link to="/contact">
-          <button className='contact-button'>
-            Contact Us
-          </button>
-          </Link>
-        </div>
+          <div className="footer-section">
+            <h4 className="footer-title">Contact Us</h4>
+            <p className="footer-description">Have any questions or need assistance? Click here to get in touch.</p>
+            <Link to="/contact">
+              <button className="footer-button">Contact us</button>
+            </Link>
+          </div>
 
-        
 
-        <div className="footer-bottom">
-          <p className='copy'>&copy; 2024 ScienceLens. All rights reserved.</p>
+          <div className="footer-rights">
+            <p className="footer-rights-text">© 2024 Demetra. All right reserved.</p>
+          </div>
         </div>
       </div>
     </footer>
   );
-};
+}
 
 export default Footer;

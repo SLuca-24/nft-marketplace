@@ -47,7 +47,7 @@
   }
   
   .nft-title {
-    font-size: 1.5em; /* Dimensione del titolo */
+    font-size: 1.8em; /* Dimensione del titolo */
     margin: 0; /* Margine nullo */
   }
   
@@ -61,21 +61,50 @@
     font-size: 1.2em; /* Dimensione del prezzo */
     font-weight: bold; /* Grassetto per il prezzo */
     margin: 10px 0; /* Margine verticale */
+
   }
   
   .purchase-button {
-    padding: 10px 20px; /* Spaziatura interna del bottone */
-    background-color: #4CAF50; /* Colore verde del bottone */
-    color: white; /* Colore del testo */
-    border: none; /* Nessun bordo */
-    border-radius: 5px; /* Angoli arrotondati */
-    cursor: pointer; /* Cursore a mano */
-    transition: background-color 0.3s; /* Transizione del colore di sfondo */
+    padding: 10px 20px;
+    background-color: #4CAF50; 
+    color: white;
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 0px;
+
+  
+    &.loading {
+      background-color: transparent;
+      border: none;
+    }
+
+    &.loading:hover {
+      background-color: transparent;
+      border: none;
+    }
+  
+    &.sold-out {
+      background-color: red; // Rosso per "Sold Out"
+      color: white; // Colore del testo
+      cursor: not-allowed; // Cambia il cursore per indicare che non è cliccabile
+    }
+
+      
+    &.sold-out:hover {
+      background-color: rgb(197, 0, 0); // Rosso per "Sold Out"
+      color: white; // Colore del testo
+      cursor: not-allowed; // Cambia il cursore per indicare che non è cliccabile
+    }
+  }
+
+  .purchase-button:hover {
+    background-color: none; /* Colore al passaggio del mouse */
   }
   
-  .purchase-button:hover {
-    background-color: #45a049; /* Colore al passaggio del mouse */
-  }
+  
+
 
   @media (max-width: 630px){
     .nft-info-container{
@@ -83,11 +112,58 @@
     }
 
     .nft-image{
-      width: 100%; /* Assicura che l'immagine occupi tutta la larghezza */
-      height: auto; /* Mantiene l'altezza proporzionale */
+      width: 100%;
+      height: auto;
       margin: 0 auto; /* Centra l'immagine orizzontalmente */
       align-self: center;
     }
-  
+  }
+
+  .success-message {
+    color: #4CAF50; /* Colore verde per il messaggio di successo */
+    font-size: 1.2em; /* Dimensione del font */
+    margin: 15px 0; /* Margine verticale */
+    font-weight: bold; /* Grassetto */
+    text-align: center;
   }
   
+  .error-message {
+    color: #F44336; /* Colore rosso per il messaggio di errore */
+    font-size: 1.2em; /* Dimensione del font */
+    margin: 15px 0; /* Margine verticale */
+    font-weight: bold; /* Grassetto */
+    text-align: center;
+  }
+  
+  .processing-message{
+    padding: 10px 20px;
+    background: linear-gradient(to right, rgb(0, 0, 138), rgb(0, 0, 56));; 
+    color: white;
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 68px;
+  }
+
+  
+  .spinner {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #fff;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .hidden {
+    display: none;
+  }

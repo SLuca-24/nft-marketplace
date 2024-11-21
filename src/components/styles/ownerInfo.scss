@@ -55,9 +55,11 @@
         justify-content: center;
       }
 
-      .toggle-button1 {
+      .toggle-button-luca {
         margin-top: 15px;
         padding: 10px 20px;
+        background-color: transparent;
+        border: solid 1px;
         border-color: #007bff;
         color: #007bff;
         border-radius: 5px;
@@ -76,6 +78,7 @@
       .toggle-button2 {
         margin-top: 15px;
         padding: 10px 20px;
+        border: solid 1px;
         background-color: #007bff;
         border-color: #007bff;
         color: white;

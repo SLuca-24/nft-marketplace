@@ -6,18 +6,20 @@ import TopNft2 from './components/pages/Top-Nft-2'
 import HomeOwnerInfo from './components/pages/Home-Owner-Info'
 import NavBar from './components/pages/NavBar'
 import NFTInfo from './components/pages/Nft-Info';
-import SmartContractInfo from './components/pages/SmartContracts-Info-Page'
+import TransferNft from './components/pages/Transfer-Nft'
 import Contact from './components/pages/Contact';
 import Footer from './components/pages/Footer';
 import PurchaseHistory from './components/pages/PurchaseHistory'
 import NftGallery from './components/pages/Nft-Gallery'
 import { WalletProvider } from './components/context/WalletContext';
+import { PurchaseProvider  } from './components/context/PurchaseContext';
 import './components/styles/app.scss';
 
 function App() {
   return (
     <Router>
       <WalletProvider>
+        <PurchaseProvider >
         <Header />
         <NavBar />
 
@@ -25,12 +27,13 @@ function App() {
           <Route path="/" element={<HomeWrapper />} />
           <Route path="/about" element={<NFTInfo />} />
           <Route path="/purchase-history" element={<PurchaseHistory />} />
-          <Route path="/smart-contract-info" element={<SmartContractInfo />} />
+          <Route path="/swap" element={<TransferNft />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<NftGallery />} />
         </Routes>
          
         <Footer />
+      </PurchaseProvider >
       </WalletProvider>
     </Router>
   );

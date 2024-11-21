@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import { formatEther } from 'ethers';
+import { ethers } from 'ethers';
+
 
 const WalletContext = createContext();
 
@@ -33,14 +34,14 @@ export const WalletProvider = ({ children }) => {
   };
 
   const getAccountBalance = async (address) => {
-    const balance = await window.ethereum.request({ method: 'eth_getBalance', params: [address, 'latest'] });
-    const network = await window.ethereum.request({ method: 'net_version' });
-    const formattedBalance = formatEther(balance);
+    const balanceWei = await window.ethereum.request({ method: 'eth_getBalance', params: [address, 'latest'] });
+    const balanceInEther = ethers.utils.formatEther(balanceWei);
+    const networkId = await window.ethereum.request({ method: 'net_version' });
 
-    if (network === '137') {
-      setBalance(`${formattedBalance} MATIC`);
+    if (networkId === '137') {
+      setBalance(`${balanceInEther} MATIC`);
     } else {
-      setBalance(`${formattedBalance} ETH`);
+      setBalance(`${balanceInEther} ETH`);
     }
   };
 
