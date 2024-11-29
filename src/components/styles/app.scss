@@ -100,12 +100,12 @@
 
 .nft-gallery {
   display: flex;
-  transition: transform 0.5s ease-in-out; // Animazione fluida per lo scorrimento
+  transition: transform 0.5s ease-in-out;
   width: 100%;
 }
 
 .nft-card {
-  flex: 0 0 100%; // Ogni card occupa il 100% della larghezza del container
+  flex: 0 0 100%;
   width: 100%;
   height: 100%;
   margin: 0;

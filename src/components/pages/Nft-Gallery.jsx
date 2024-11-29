@@ -8,12 +8,10 @@ const NftGallery = () => {
   const [soldOutNFTs, setSoldOutNFTs] = useState({});
 
   useEffect(() => {
-    // Recupera gli NFT sold out dal local storage
     const soldOut = JSON.parse(localStorage.getItem('soldOutNFTs')) || {};
     setSoldOutNFTs(soldOut);
   }, []);
 
-  // Estrai tutti gli NFT dal file centralizzato
   const NFTs = Object.keys(NFTData).map(id => ({
     id: parseInt(id),
     title: NFTData[id].title,

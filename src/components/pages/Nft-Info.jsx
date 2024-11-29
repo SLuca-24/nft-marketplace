@@ -60,15 +60,13 @@ const NFTInfo = () => {
 
   const addPurchase = (purchase) => {
     const existingPurchases = JSON.parse(localStorage.getItem("purchases")) || {};
-    const userPurchases = existingPurchases[account] || []; // account è l'indirizzo del wallet connesso
+    const userPurchases = existingPurchases[account] || [];
     userPurchases.push(purchase);
     existingPurchases[account] = userPurchases;
     localStorage.setItem("purchases", JSON.stringify(existingPurchases));
   };
   
   
-  
-  // Funzione per gestire l'acquisto
   const handlePurchase = async () => {
 
     if (!isWalletConnected) {
@@ -77,7 +75,6 @@ const NFTInfo = () => {
     }
 
     try {
-      // Controlla se l'utente ha MetaMask e un account connesso
       if (!window.ethereum) {
         alert("Install an ethereum wallet to buy the nft");
         return;
@@ -86,29 +83,23 @@ const NFTInfo = () => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = await provider.getSigner();
       const buyerAddress = await signer.getAddress();
-
-      // Instanzia il contratto con l'ABI e l'indirizzo
       const contract = new ethers.Contract(contractAddress, contractABI.abi, signer);
 
       setIsLoading(true);
       setTransactionSuccess(null);
-      
       console.log("Inizio acquisto NFT...");
       console.log(`ID NFT: ${id}, Prezzo: ${nft.price} ETH`);
 
-      // Effettua la transazione per acquistare l'NFT
       const tx = await contract.transferMoney(id, {
         value: ethers.utils.parseEther(nft.price.toString())
       });
       
       console.log("Transazione inviata:", tx);
-      await tx.wait();  // Aspetta la conferma della transazione
+      await tx.wait();
       console.log(`NFT con ID ${id} acquistato con successo!`);
       setTransactionSuccess(true);
       setIsSoldOut(true);
       setNft(prevNft => ({ ...prevNft, isSoldOut: true }));
-
-            // Salva lo stato "sold out" nel localStorage
             const soldOutNFTs = JSON.parse(localStorage.getItem("soldOutNFTs")) || {};
             soldOutNFTs[id] = true;
             localStorage.setItem("soldOutNFTs", JSON.stringify(soldOutNFTs));
@@ -127,7 +118,6 @@ const NFTInfo = () => {
       console.error("Errore durante l'acquisto:", error);
       setTransactionSuccess(false);
     } finally {
-      // Imposta isLoading a false alla fine
       setIsLoading(false);
     }
   };

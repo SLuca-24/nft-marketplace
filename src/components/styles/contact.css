@@ -1,95 +1,84 @@
 .contact-form-container {
-  max-width: 600px; /* Larghezza massima del modulo */
-  padding: 20px; /* Padding interno */
-  background-color: #f9f9f9; /* Colore di sfondo chiaro */
-  border-radius: 8px; /* Angoli arrotondati */
+  max-width: 600px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin: 100px auto;
 }
 
-  
-  /* Titolo del modulo */
+.form-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2.2em;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-input,
+.form-textarea {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s;
+}
+
+.form-button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+  .contact-form-container {
+    padding: 10px;
+    margin: 100px 0px;
+  }
+
   .form-title {
-    text-align: center; /* Centra il titolo */
-    color: #333; /* Colore del testo */
-    margin-bottom: 20px; /* Margine inferiore */
-    font-size: 2.2em; /* Dimensione del font */
+    font-size: 1.4em;
   }
-  
-  /* Gruppo di input */
-  .form-group {
-    margin-bottom: 15px; /* Margine inferiore per ogni gruppo */
-  }
-  
-  /* Etichetta degli input */
-  label {
-    display: block; /* Rendi le etichette blocchi */
-    margin-bottom: 5px; /* Margine inferiore */
-    font-weight: bold; /* Grassetto */
-    color: #555; /* Colore del testo delle etichette */
-  }
-  
-  /* Stile per gli input */
+
   .form-input,
-  .form-textarea {
-    width: 95%; /* Larghezza al 100% */
-    padding: 10px; /* Padding interno */
-    border: 1px solid #ddd; /* Bordo grigio chiaro */
-    border-radius: 4px; /* Angoli arrotondati */
-    transition: border-color 0.3s; /* Transizione per il bordo */
-  }
-  
-  /* Stile per gli input al focus */
-  .form-input:focus,
-  .form-textarea:focus {
-    border-color: #007bff; /* Colore del bordo al focus */
-    outline: none; /* Rimuove il contorno predefinito */
-  }
-  
-  /* Stile per la textarea */
-  .form-textarea {
-    min-height: 100px; /* Altezza minima per la textarea */
-    resize: vertical; /* Permette di ridimensionare solo verticalmente */
-  }
-  
-  /* Bottone di invio */
+  .form-textarea,
   .form-button {
-    width: 100%; /* Larghezza al 100% */
-    padding: 10px; /* Padding interno */
-    background-color: #007bff; /* Colore di sfondo del bottone */
-    color: #fff; /* Colore del testo */
-    border: none; /* Rimuove il bordo predefinito */
-    border-radius: 4px; /* Angoli arrotondati */
-    cursor: pointer; /* Cambia il cursore */
-    font-size: 1.1em; /* Dimensione del font */
-    transition: background-color 0.3s; /* Transizione per il colore di sfondo */
+    font-size: 0.9em;
+    padding: 8px;
   }
-  
-  /* Stile per il bottone al hover */
-  .form-button:hover {
-    background-color: #0056b3; /* Colore di sfondo al passaggio del mouse */
+
+  .form-textarea {
+    min-height: 80px;
   }
-  
-  /* Media queries per la responsività */
-  @media (max-width: 600px) {
-    .contact-form-container {
-      padding: 10px; /* Ulteriore riduzione del padding per schermi piccoli */
-      margin: 100px 0px;
-    }
-  
-    .form-title {
-      font-size: 1.4em; /* Dimensione del font ridotta per il titolo */
-    }
-  
-    .form-input,
-    .form-textarea,
-    .form-button {
-      font-size: 0.9em; /* Dimensione del font ridotta per input e bottone */
-      padding: 8px; /* Riduce il padding interno */
-    }
-  
-    .form-textarea {
-      min-height: 80px; /* Altezza minima ridotta per la textarea */
-    }
-  }
-  
+}

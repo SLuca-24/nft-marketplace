@@ -26,10 +26,10 @@
     }
 
     .nft-image {
-      width: 100%;           // Larghezza al 100% per riempire il contenitore
-      height: auto;         // Mantiene le proporzioni
-      max-height: 300px;    // Limita l'altezza massima se necessario
-      object-fit: cover;    // Assicura che l'immagine riempia il contenitore
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: cover;
     }
   }
 }

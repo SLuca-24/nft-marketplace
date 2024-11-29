@@ -14,8 +14,6 @@ const PurchaseHistory = () => {
       const allPurchases = JSON.parse(localStorage.getItem("purchases")) || {};
       const userPurchases = allPurchases[account] || [];
       setPurchasedNFTs(userPurchases);
-
-
       const allTransfers = JSON.parse(localStorage.getItem("nft-transfers")) || [];
       const userReceivedNFTs = allTransfers.filter(transfer => transfer.to.toLowerCase() === account.toLowerCase());
       setReceivedNFTs(userReceivedNFTs);
@@ -23,8 +21,6 @@ const PurchaseHistory = () => {
       setNFTData(storedNFTData);
     }
   }, [isWalletConnected, account]);
-
-
   const getNFTImageById = (nftId) => {
     const nft = NFTData[nftId];
     return nft ? nft.imageUrl : 'nft not found';

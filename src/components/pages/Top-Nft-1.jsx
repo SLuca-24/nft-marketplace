@@ -12,7 +12,7 @@ const TopNft1 = () => {
   }));
 
   const galleryRef = useRef(null);
-  const [currentIndex, setCurrentIndex] = useState(0); // Mantiene l'indice dell'NFT corrente
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const scrollLeft = () => {
     if (currentIndex > 0) {

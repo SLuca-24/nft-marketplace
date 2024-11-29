@@ -16,25 +16,20 @@ const TransferNFT = () => {
       const allPurchases = JSON.parse(localStorage.getItem('purchases')) || {};
       const userPurchases = allPurchases[account] || [];
       setPurchasedNFTs(userPurchases);
-
-      // Ottieni i trasferimenti da localStorage per gli NFT ricevuti
       const allTransfers = JSON.parse(localStorage.getItem("nft-transfers")) || [];
       const userReceivedNFTs = allTransfers.filter(transfer => transfer.to.toLowerCase() === account.toLowerCase());
-
-      // Recupera i dati da nftData per ogni NFT ricevuto
       const receivedNFTsWithData = userReceivedNFTs.map(transfer => {
         const nftData = NFTData[transfer.nftId];
         return nftData ? { ...transfer, ...nftData } : null;
       }).filter(nft => nft !== null);
       setReceivedNFTs(receivedNFTsWithData);
 
-      // Salva anche i dati iniziali in state
       const storedNFTData = JSON.parse(localStorage.getItem("nftData")) || initialNFTData;
       setNFTData(storedNFTData);
     }
   }, [isWalletConnected, account]);
 
-  // Funzione per unire gli NFT acquistati e ricevuti, aggiungendo un flag isReceived
+
   const mergeNFTData = () => {
     const mergedNFTs = [
       ...purchasedNFTs.map(nft => ({ ...nft, isReceived: false })),
@@ -69,8 +64,6 @@ const TransferNFT = () => {
 
       const existingTransfers = JSON.parse(localStorage.getItem('nft-transfers')) || [];
       existingTransfers.push(transferDetails);
-
-      // Salva l'array aggiornato nel local storage
       localStorage.setItem('nft-transfers', JSON.stringify(existingTransfers));
 
       alert(`Trasferito ${selectedNFT.title} a ${recipientAddress}`);
@@ -78,8 +71,6 @@ const TransferNFT = () => {
       const allPurchases = JSON.parse(localStorage.getItem('purchases')) || {};
       const updatedPurchases = allPurchases[account].filter(nft => nft.id !== selectedNFT.id);
       allPurchases[account] = updatedPurchases;
-
-      // Aggiorna il buyerAddress dell'NFT nel local storage
       if (allPurchases[recipientAddress]) {
         const recipientPurchases = allPurchases[recipientAddress];
 
@@ -91,7 +82,6 @@ const TransferNFT = () => {
           recipientPurchases.push({ ...selectedNFT, buyerAddress: recipientAddress });
         }
       } else {
-        // Se non esiste l'array per il destinatario, crealo
         allPurchases[recipientAddress] = [{ ...selectedNFT, buyerAddress: recipientAddress }];
       }
 

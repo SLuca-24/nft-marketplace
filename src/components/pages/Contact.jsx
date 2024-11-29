@@ -12,19 +12,12 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!isWalletConnected) {
       alert('You have to connect you wallet to send the form');
       return;
     }
-
-    // Logga i dati del modulo nella console
     console.log('Data:', { name, email, phone, description });
-
-    // Mostra un messaggio di ringraziamento
     alert('Thank you for reporting!\n We will back to you as soon as possible');
-
-    // Pulisci il modulo
     setName('');
     setEmail('');
     setPhone('');

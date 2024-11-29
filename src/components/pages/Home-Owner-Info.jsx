@@ -33,11 +33,12 @@ const Home3 = () => {
         {showDetails && (
           <div className="detailed-info">
             <p>
-              The artist draws inspiration from various sources, including nature, technology, and
-              human emotion. Each NFT is meticulously crafted to evoke a response and foster a
-              connection with the viewer. This collection aims to bridge the gap between the
-              physical and digital worlds, inviting collectors to become part of this innovative
-              movement.
+            At the heart of our NFT collection lies a profound inspiration drawn from the transformative power of blockchain technology. Each NFT represents a pair of our sneakers, designed not just as a product but as a statement of uniqueness and sustainability.
+            The blockchain serves as a digital canvas, allowing us to encapsulate the individuality of each pair of sneakers.
+            <br/>
+            <br/>
+            But beyond uniqueness, the blockchain becomes a powerful tool for transparency and accountability. Sustainability is more than a commitment for us—it's a mission. By leveraging blockchain, we can trace the journey of each sneaker from conception to production. From ethically sourced materials to the carbon footprint of every process, the entire lifecycle is recorded immutably, ensuring our customers are part of a story rooted in trust and ecological responsibility.
+            This collection represents the future of fashion—a fusion of innovation, ethics, and art. With every NFT, you're not just owning a unique digital asset but becoming a part of a movement that values transparency, sustainability, and individuality.
             </p>
           </div>
         )}

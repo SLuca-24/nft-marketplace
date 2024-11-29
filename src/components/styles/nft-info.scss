@@ -1,169 +1,166 @@
 .nft-info-container {
-    display: flex; /* Utilizza flexbox per la disposizione */
-    max-width: 1200px; /* Larghezza massima della pagina */
-    margin: 100px auto; /* Centra la pagina */
-    border: 1px solid #ddd; /* Bordo grigio chiaro */
-    border-radius: 10px; /* Angoli arrotondati */
-    overflow: hidden; /* Nasconde il contenuto che esce dai bordi */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombra leggera */
-    justify-content: center;
+  display: flex;
+  max-width: 1200px;
+  margin: 100px auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+}
+
+@media (max-width: 1250px) {
+  .nft-info-container {
+    margin: 100px 50px;
+  }
+}
+
+@media (max-width: 900px) {
+  .nft-info-container {
+    margin: 100px 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .nft-info-container {
+    margin: 100px 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .nft-info-container {
+    margin: 100px 10px;
+  }
+}
+
+.nft-image {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+}
+
+.nft-details {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.nft-title {
+  font-size: 1.8em;
+  margin: 0;
+}
+
+.nft-description {
+  font-size: 1em;
+  color: #555;
+  margin: 10px 0;
+}
+
+.nft-price {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.purchase-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 0px;
+}
+
+.purchase-button.loading {
+  background-color: transparent;
+  border: none;
+}
+
+.purchase-button.loading:hover {
+  background-color: transparent;
+  border: none;
+}
+
+.purchase-button.sold-out {
+  background-color: red;
+  color: white;
+  cursor: not-allowed;
+}
+
+.purchase-button.sold-out:hover {
+  background-color: rgb(197, 0, 0);
+  color: white;
+  cursor: not-allowed;
+}
+
+.purchase-button:hover {
+  background-color: none;
+}
+
+@media (max-width: 630px) {
+  .nft-info-container {
+    flex-direction: column;
   }
 
-  @media (max-width: 1250px){
-    .nft-info-container{
-      margin: 100px 50px;
-    }
-  }
-
-  @media (max-width: 900px){
-    .nft-info-container{
-      margin: 100px 30px;
-    }
-  }
-
-  @media (max-width: 700px){
-    .nft-info-container{
-      margin: 100px 20px;
-    }
-  }
-
-  @media (max-width: 500px){
-    .nft-info-container{
-      margin: 100px 10px;
-    }
-  }
-  
   .nft-image {
-    width: 50%; /* Larghezza dell'immagine */
-    height: auto; /* Mantiene l'altezza proporzionale */
-    object-fit: cover; /* Mantiene le proporzioni dell'immagine */
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    align-self: center;
   }
-  
-  .nft-details {
-    padding: 20px; /* Spaziatura interna */
-    display: flex;
-    flex-direction: column; /* Colonna per il contenuto */
-    justify-content: flex-start; /* Allinea il contenuto in alto */
-  }
-  
-  .nft-title {
-    font-size: 1.8em; /* Dimensione del titolo */
-    margin: 0; /* Margine nullo */
-  }
-  
-  .nft-description {
-    font-size: 1em; /* Dimensione del testo della descrizione */
-    color: #555; /* Colore del testo grigio scuro */
-    margin: 10px 0; /* Margine verticale */
-  }
-  
-  .nft-price {
-    font-size: 1.2em; /* Dimensione del prezzo */
-    font-weight: bold; /* Grassetto per il prezzo */
-    margin: 10px 0; /* Margine verticale */
+}
 
-  }
-  
-  .purchase-button {
-    padding: 10px 20px;
-    background-color: #4CAF50; 
-    color: white;
-    border: none; 
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-left: 0px;
+.success-message {
+  color: #4CAF50;
+  font-size: 1.2em;
+  margin: 15px 0;
+  font-weight: bold;
+  text-align: center;
+}
 
-  
-    &.loading {
-      background-color: transparent;
-      border: none;
-    }
+.error-message {
+  color: #F44336;
+  font-size: 1.2em;
+  margin: 15px 0;
+  font-weight: bold;
+  text-align: center;
+}
 
-    &.loading:hover {
-      background-color: transparent;
-      border: none;
-    }
-  
-    &.sold-out {
-      background-color: red; // Rosso per "Sold Out"
-      color: white; // Colore del testo
-      cursor: not-allowed; // Cambia il cursore per indicare che non è cliccabile
-    }
+.processing-message {
+  padding: 10px 20px;
+  background: linear-gradient(to right, rgb(0, 0, 138), rgb(0, 0, 56));
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 68px;
+}
 
-      
-    &.sold-out:hover {
-      background-color: rgb(197, 0, 0); // Rosso per "Sold Out"
-      color: white; // Colore del testo
-      cursor: not-allowed; // Cambia il cursore per indicare che non è cliccabile
-    }
-  }
+.spinner {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #fff;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+}
 
-  .purchase-button:hover {
-    background-color: none; /* Colore al passaggio del mouse */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
-
-  @media (max-width: 630px){
-    .nft-info-container{
-      flex-direction: column;
-    }
-
-    .nft-image{
-      width: 100%;
-      height: auto;
-      margin: 0 auto; /* Centra l'immagine orizzontalmente */
-      align-self: center;
-    }
-  }
-
-  .success-message {
-    color: #4CAF50; /* Colore verde per il messaggio di successo */
-    font-size: 1.2em; /* Dimensione del font */
-    margin: 15px 0; /* Margine verticale */
-    font-weight: bold; /* Grassetto */
-    text-align: center;
-  }
-  
-  .error-message {
-    color: #F44336; /* Colore rosso per il messaggio di errore */
-    font-size: 1.2em; /* Dimensione del font */
-    margin: 15px 0; /* Margine verticale */
-    font-weight: bold; /* Grassetto */
-    text-align: center;
-  }
-  
-  .processing-message{
-    padding: 10px 20px;
-    background: linear-gradient(to right, rgb(0, 0, 138), rgb(0, 0, 56));; 
-    color: white;
-    border: none; 
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-bottom: 68px;
-  }
-
-  
-  .spinner {
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-top: 3px solid #fff;
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    animation: spin 1s linear infinite;
-    display: inline-block;
-    margin-right: 8px;
-    vertical-align: middle;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  .hidden {
-    display: none;
-  }
+.hidden {
+  display: none;
+}

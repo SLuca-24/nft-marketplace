@@ -14,15 +14,15 @@
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1fr; /* mobile-first */
+  grid-template-columns: 1fr;
   gap: 3rem;
 
   @media (min-width: 640px) {
-    grid-template-columns: repeat(2, 1fr); /* sm: 2 colonne */
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (min-width: 1024px) {
-    grid-template-columns: repeat(4, 1fr); /* lg: 4 colonne */
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -50,7 +50,7 @@
   transition: color 0.3s ease;
 
   &:hover {
-    color: #007bff; /* colore per hover, simile al primary */
+    color: #007bff;
   }
 }
 
@@ -64,19 +64,19 @@
   transition: color 0.3s ease;
 
   &.facebook:hover {
-    color: #3b5998; /* Facebook */
+    color: #3b5998;
   }
 
   &.x:hover {
-    color: #4b4b4b; /* X (ex Twitter) */
+    color: #4b4b4b;
   }
 
   &.linkedin:hover {
-    color: #0077b5; /* LinkedIn */
+    color: #0077b5;
   }
 
   &.instagram:hover {
-    color: #e4405f; /* Instagram */
+    color: #e4405f;
   }
 }
 
@@ -115,5 +115,5 @@
 
 .footer-rights-text {
   font-size: 0.875rem;
-  color: #d1d5db; /* text-gray-300 */
+  color: #d1d5db;
 }
