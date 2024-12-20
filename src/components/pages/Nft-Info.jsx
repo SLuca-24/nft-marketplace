@@ -87,16 +87,16 @@ const NFTInfo = () => {
 
       setIsLoading(true);
       setTransactionSuccess(null);
-      console.log("Inizio acquisto NFT...");
-      console.log(`ID NFT: ${id}, Prezzo: ${nft.price} ETH`);
+      console.log("Starting the purchase...");
+      console.log(`ID NFT: ${id}, Price: ${nft.price} ETH`);
 
       const tx = await contract.transferMoney(id, {
         value: ethers.utils.parseEther(nft.price.toString())
       });
       
-      console.log("Transazione inviata:", tx);
+      console.log("Transaction submitted.:", tx);
       await tx.wait();
-      console.log(`NFT con ID ${id} acquistato con successo!`);
+      console.log(`NFT ID ${id} successfully bought!!`);
       setTransactionSuccess(true);
       setIsSoldOut(true);
       setNft(prevNft => ({ ...prevNft, isSoldOut: true }));
@@ -115,7 +115,7 @@ const NFTInfo = () => {
       });
 
     } catch (error) {
-      console.error("Errore durante l'acquisto:", error);
+      console.error("Purchase failed.:", error);
       setTransactionSuccess(false);
     } finally {
       setIsLoading(false);
@@ -150,7 +150,7 @@ const NFTInfo = () => {
             "Buy Now"
           )}
         </button>
-        {transactionSuccess === true && <p className="success-message">Transazione completata con successo!</p>}
+        {transactionSuccess === true && <p className="success-message">Transaction successfully completed!</p>}
         {transactionSuccess === false && <p className="error-message">{isBalanceEnough()}</p>}
       </div>
     </div>

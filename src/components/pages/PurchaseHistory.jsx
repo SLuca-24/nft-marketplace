@@ -28,6 +28,7 @@ const PurchaseHistory = () => {
 
   return (
     <div className="purchase-history">
+       <div className="history-wrapper">
       {isWalletConnected ? (
         <>
           <h2>Your Purchase History</h2>
@@ -71,6 +72,7 @@ const PurchaseHistory = () => {
           Connect your wallet to view your purchase history!
         </h2>
       )}
+      </div>
     </div>
   );
 };

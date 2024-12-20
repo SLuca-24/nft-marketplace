@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useWallet } from '../context/WalletContext';
 import { NFTData as initialNFTData } from '../nftData';
 import '../styles/transfer-nft.scss';
+import { ethers } from 'ethers';
+
 
 const TransferNFT = () => {
   const { isWalletConnected, account } = useWallet();
@@ -53,6 +55,20 @@ const TransferNFT = () => {
   };
 
   const handleTransfer = () => {
+    if (!selectedNFT || !recipientAddress) {
+      alert('Select an NFT and enter a valid recipient address');
+      return;
+    }
+  
+    if (!ethers.utils.isAddress(recipientAddress)) {
+      alert("The address entered is not valid. Please enter a correct Ethereum address");
+      return;
+    }
+  
+    if (recipientAddress.toLowerCase() === account.toLowerCase()) {
+      alert("You cannot transfer an NFT to yourself");
+      return;
+    }
     if (selectedNFT && recipientAddress) {
       const transferDetails = {
         from: account,
@@ -91,7 +107,7 @@ const TransferNFT = () => {
       setSelectedNFT(null);
       setRecipientAddress('');
     } else {
-      alert('Seleziona un NFT e inserisci un indirizzo del destinatario valido.');
+      alert('Select an NFT and enter a valid recipient address.');
     }
   };
 

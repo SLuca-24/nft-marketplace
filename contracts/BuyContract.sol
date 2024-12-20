@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.27;
 
-contract NFTMarketplace {
+contract HandlePayment {
     address public owner;
     uint[] public purchasedNFTs;
 

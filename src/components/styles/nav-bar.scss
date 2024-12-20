@@ -53,7 +53,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: black;
+    color: rgba(87, 87, 87, 0.7);
     text-decoration: none;
     padding: 10px;
     border: solid 1px transparent;
@@ -64,9 +64,13 @@
     transition: color 0.3s ease;
   }
 
+  .icon-item:hover {
+    color: rgb(0, 0, 0, 0.6); 
+  }
+
 
   .icon-item.active {
-    color:  rgba(168, 168, 168, 0.349);
+    color:  black;
   }
 
 

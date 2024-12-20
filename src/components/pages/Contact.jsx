@@ -17,7 +17,7 @@ const ContactForm = () => {
       return;
     }
     console.log('Data:', { name, email, phone, description });
-    alert('Thank you for reporting!\n We will back to you as soon as possible');
+    alert('Thank you for reporting!\n We will be back to you as soon as possible');
     setName('');
     setEmail('');
     setPhone('');
