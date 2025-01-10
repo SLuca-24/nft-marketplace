@@ -1,0 +1,148 @@
+.purchase-history {
+  padding: 20px;
+  font-size: 1.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0;
+  overflow: hidden;
+  margin-bottom: 260px;
+}
+
+
+
+.history-wrapper {
+  width: 90%;
+  max-width: 1000px; 
+  background-color: #f9f9f9; 
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.order-item:hover {
+  transform: translateY(-3px);
+}
+
+.order-image {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 8px;
+}
+
+.order-details {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.order-title {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
+  padding-bottom: 2px;
+}
+
+.order-date, .order-price {
+  margin: 5px 0;
+  color: #666;
+  font-size: 16px;
+  display: inline-block;
+
+}
+
+.Connect-Wallet-Error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  max-width: 600px;
+  margin: 150px auto;
+  margin-bottom: 260px;
+}
+
+.Connect-Wallet-Error:hover {
+  background-color: #f5c6cb;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 800px) {
+  .order-item {
+    padding: 15px;
+    align-items: flex-start;
+  }
+
+  .order-image {
+    width: 80px;
+    margin-right: 20;
+    margin-bottom: 10px;
+  }
+
+  .Connect-Wallet-Error {
+    margin: 100px auto;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .order-title {
+    font-size: 18px;
+  }
+
+  .order-date, .order-price {
+    font-size: 14px;
+  }
+
+  .Connect-Wallet-Error {
+    font-size: 1em;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 450px) {
+  .order-image {
+    width: 60px;
+  }
+
+  .Connect-Wallet-Error {
+    font-size: 0.9em;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 350px) {
+  .order-item {
+    flex-direction: column;
+    padding: 15px;
+    align-items: flex-start;
+  }
+}
+
+

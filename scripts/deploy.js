@@ -1,19 +1,15 @@
-// scripts/deploy.js
-const hre = require("hardhat");
-
 async function main() {
-    const NFTMarketplace = await hre.ethers.getContractFactory("NFTMarketplace");
-    const nftMarketplace = await NFTMarketplace.deploy();
+    const [deployer] = await ethers.getSigners();
+    console.log("Deploying contracts with the account:", deployer.address);
+    const NFTAuction = await ethers.getContractFactory("NFTAuction");
 
-    await nftMarketplace.deployed();
-
-    console.log("NFTMarketplace deployed to:", nftMarketplace.address);
-}
-
-// Eseguire la funzione main e gestire eventuali errori
-main()
+    const nftAuction = await NFTAuction.deploy();
+    console.log("NFTAuction contract deployed to:", nftAuction.address);
+  }
+  main()
     .then(() => process.exit(0))
     .catch((error) => {
-        console.error(error);
-        process.exit(1);
+      console.error(error);
+      process.exit(1);
     });
+  

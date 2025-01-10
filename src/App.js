@@ -1,16 +1,16 @@
 // App.js
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Header from './components/pages/Header';
-import TopNft1 from './components/pages/Top-Nft-1';
-import TopNft2 from './components/pages/Top-Nft-2'
-import HomeOwnerInfo from './components/pages/Home-Owner-Info'
-import NavBar from './components/pages/NavBar'
-import NFTInfo from './components/pages/Nft-Info';
-import TransferNft from './components/pages/Transfer-Nft'
-import Contact from './components/pages/Contact';
-import Footer from './components/pages/Footer';
-import PurchaseHistory from './components/pages/PurchaseHistory'
-import NftGallery from './components/pages/Nft-Gallery'
+import Header from './pages/Header.tsx';
+import TopNft1 from './pages/TopNft1.tsx';
+import TopNft2 from './pages/TopNft2.tsx'
+import HomeOwnerInfo from './pages/HomeOwnerInfo.tsx'
+import NavBar from './pages/NavBar.tsx'
+import NFTInfo from './pages/NftInfo.jsx';
+import TransferNft from './pages/TransferNft.jsx'
+import Contact from './pages/Contact.tsx';
+import Footer from './pages/Footer.tsx';
+import PurchaseHistory from './pages/PurchaseHistory.jsx'
+import NftGallery from './pages/NftGallery.tsx'
 import { WalletProvider } from './components/context/WalletContext';
 import { PurchaseProvider  } from './components/context/PurchaseContext';
 import './components/styles/app.scss';

@@ -9,14 +9,19 @@ export const WalletProvider = ({ children }) => {
   const [balance, setBalance] = useState(null);
   const [network, setNetwork] = useState(null);
 
-  // Connetti il wallet e salva nel localStorage
+  //1 ora max offline poi un re login needed
+  const SESSION_DURATION = 1 * 60 * 60 * 1000;
+
+ 
   const connectWallet = async () => {
     if (window.ethereum) {
       try {
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const currentTime = new Date().getTime();
         await accountChangeHandler(accounts[0]);
         setIsWalletConnected(true);
-        localStorage.setItem('connectedWallet', accounts[0]); // Salva l'account
+        localStorage.setItem('connectedWallet', accounts[0]);
+        localStorage.setItem('walletSessionTimestamp', currentTime);
       } catch (error) {
         console.error('Errore durante la connessione al wallet:', error);
       }
@@ -25,7 +30,7 @@ export const WalletProvider = ({ children }) => {
     }
   };
 
-  // Gestisce il cambio di account
+
   const accountChangeHandler = async (newAccount) => {
     setAccount(newAccount);
     await getAccountBalance(newAccount);
@@ -33,7 +38,6 @@ export const WalletProvider = ({ children }) => {
     setNetwork(networkFriendlyName(networkId));
   };
 
-  // Recupera il bilancio
   const getAccountBalance = async (address) => {
     const balanceWei = await window.ethereum.request({ method: 'eth_getBalance', params: [address, 'latest'] });
     const balanceInEther = ethers.utils.formatEther(balanceWei);
@@ -46,31 +50,46 @@ export const WalletProvider = ({ children }) => {
     }
   };
 
-  // Gestione del cambio della chain
+
   const chainChangedHandler = () => {
     window.location.reload();
   };
 
-  // Controllo al caricamento della pagina per riconnettere il wallet
+ 
   useEffect(() => {
     const savedAccount = localStorage.getItem('connectedWallet');
-    if (savedAccount) {
-      (async () => {
-        await accountChangeHandler(savedAccount);
-        setIsWalletConnected(true);
-      })();
+    const savedTimestamp = localStorage.getItem('walletSessionTimestamp');
+    const currentTime = new Date().getTime();
+
+    if (savedAccount && savedTimestamp) {
+   
+      if (currentTime - parseInt(savedTimestamp, 10) < SESSION_DURATION) {
+        (async () => {
+          await accountChangeHandler(savedAccount);
+          setIsWalletConnected(true);
+        })();
+      } else {
+        localStorage.removeItem('connectedWallet');
+        localStorage.removeItem('walletSessionTimestamp');
+        setIsWalletConnected(false);
+        setAccount(null);
+        setBalance(null);
+      }
     }
 
     if (window.ethereum) {
       const handleAccountsChanged = (accounts) => {
         if (accounts.length > 0) {
           accountChangeHandler(accounts[0]);
-          localStorage.setItem('connectedWallet', accounts[0]); // Aggiorna l'account salvato
+          const currentTime = new Date().getTime();
+          localStorage.setItem('connectedWallet', accounts[0]);
+          localStorage.setItem('walletSessionTimestamp', currentTime);
         } else {
           setIsWalletConnected(false);
           setAccount(null);
           setBalance(null);
-          localStorage.removeItem('connectedWallet'); // Rimuovi se non ci sono account
+          localStorage.removeItem('connectedWallet');
+          localStorage.removeItem('walletSessionTimestamp');
         }
       };
 

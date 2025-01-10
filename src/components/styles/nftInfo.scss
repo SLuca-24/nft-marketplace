@@ -1,0 +1,277 @@
+.nft-info-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 100px auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+}
+
+@media (max-width: 1250px) {
+  .nft-info-container {
+    margin: 100px 50px;
+  }
+}
+
+@media (max-width: 900px) {
+  .nft-info-container {
+    margin: 100px 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .nft-info-container {
+    margin: 100px 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .nft-info-container {
+    margin: 100px 10px;
+  }
+}
+
+.nft-image {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+}
+
+.nft-details {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.nft-title {
+  font-size: 1.8em;
+  margin: 0;
+}
+
+.nft-description {
+  font-size: 1em;
+  color: #555;
+  margin: 10px 0;
+}
+
+.nft-price {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.purchase-button {
+  padding: 10px 20px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 0px;
+}
+
+.purchase-button.loading {
+  background-color: transparent;
+  border: none;
+}
+
+.purchase-button.loading:hover {
+  background-color: transparent;
+  border: none;
+}
+
+.purchase-button.sold-out {
+  background: #808080;
+  color: white;
+  cursor: not-allowed;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.purchase-button.sold-out:hover {
+  background: #696969;
+  cursor: not-allowed;
+}
+
+
+.purchase-button:hover {
+  background-color: none;
+}
+
+.purchase-button.auction-active {
+  background: #808080;
+  cursor: not-allowed;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.purchase-button.auction-active:hover {
+  background: #808080;
+  cursor: not-allowed;
+  background: #696969;
+}
+
+
+@media (max-width: 630px) {
+  .nft-info-container {
+    flex-direction: column;
+  }
+
+  .nft-image {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    align-self: center;
+  }
+}
+
+.success-message {
+  color: #4CAF50;
+  font-size: 1.2em;
+  margin: 15px 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+.error-message {
+  color: #F44336;
+  font-size: 1.2em;
+  margin: 15px 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+.processing-message {
+  background: #d3d3d3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: not-allowed;
+  margin-left: 0px;
+
+}
+
+.spinner {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #fff;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+.auction-container {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.auction-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.auction-input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.auction-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.auction-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+.auction-button.loading {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.auction-button.sold-out {
+  background-color: #ff4c4c;
+  cursor: not-allowed;
+}
+
+.auction-button:disabled {
+  background-color: #d3d3d3;
+  cursor: not-allowed;
+}
+
+.bids-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.bids-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.bid-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bid-amount {
+  font-weight: bold;
+  color: #333;
+}
+
+.bid-wallet {
+  font-style: italic;
+  color: #666;
+}
+
+.bid-timestamp {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.highest-bid {
+  background-color: #e6f7e6;
+  border: 0.5px solid green;
+  color: green;
+}
+
+
+
+

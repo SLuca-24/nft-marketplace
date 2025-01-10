@@ -27,6 +27,7 @@ export const NFTData = {
     imageUrl: NFT1,
     price: '0.0001',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   2: {
     title: 'DMT #975',
@@ -34,6 +35,7 @@ export const NFTData = {
     imageUrl: NFT2,
     price: '0.0002',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   3: {
     title: 'DMT #654',
@@ -41,6 +43,7 @@ export const NFTData = {
     imageUrl: NFT3,
     price: '0.0003',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   4: {
     title: 'DMT #331',
@@ -48,6 +51,7 @@ export const NFTData = {
     imageUrl: NFT4,
     price: '0.0004',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   5: {
     title: 'DMT #111',
@@ -55,6 +59,7 @@ export const NFTData = {
     imageUrl: NFT5,
     price: '0.0005',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   6: {
     title: 'DMT #180',
@@ -62,6 +67,7 @@ export const NFTData = {
     imageUrl: NFT6,
     price: '0.0006',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   7: {
     title: 'DMT #251',
@@ -69,6 +75,7 @@ export const NFTData = {
     imageUrl: NFT7,
     price: '0.0007',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   8: {
     title: 'DMT #512',
@@ -76,6 +83,7 @@ export const NFTData = {
     imageUrl: NFT8,
     price: '0.0008',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   9: {
     title: 'DMT #897',
@@ -83,6 +91,7 @@ export const NFTData = {
     imageUrl: NFT9,
     price: '0.0009',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   10: {
     title: 'DMT #352',
@@ -90,6 +99,7 @@ export const NFTData = {
     imageUrl: NFT10,
     price: '0.0001',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   11: {
     title: 'DMT #432',
@@ -97,6 +107,7 @@ export const NFTData = {
     imageUrl: NFT11,
     price: '0.0002',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   12: {
     title: 'DMT #123',
@@ -104,6 +115,7 @@ export const NFTData = {
     imageUrl: NFT12,
     price: '0.0003',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   13: {
     title: 'DMT #789',
@@ -111,6 +123,7 @@ export const NFTData = {
     imageUrl: NFT13,
     price: '0.0004',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   14: {
     title: 'DMT #564',
@@ -118,6 +131,7 @@ export const NFTData = {
     imageUrl: NFT14,
     price: '0.0005',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   15: {
     title: 'DMT #103',
@@ -125,6 +139,7 @@ export const NFTData = {
     imageUrl: NFT15,
     price: '0.0006',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   16: {
     title: 'DMT #489',
@@ -132,6 +147,7 @@ export const NFTData = {
     imageUrl: NFT16,
     price: '0.0007',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   17: {
     title: 'DMT #259',
@@ -139,6 +155,7 @@ export const NFTData = {
     imageUrl: NFT17,
     price: '0.0001',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   18: {
     title: 'DMT #615',
@@ -146,6 +163,7 @@ export const NFTData = {
     imageUrl: NFT18,
     price: '0.0009',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   19: {
     title: 'DMT #719',
@@ -153,6 +171,7 @@ export const NFTData = {
     imageUrl: NFT19,
     price: '0.0001',
     isSoldOut: false,
+    date: '2024-12-23',
   },
   20: {
     title: 'DMT #444',
@@ -160,6 +179,7 @@ export const NFTData = {
     imageUrl: NFT20,
     price: '0.0001',
     isSoldOut: false,
+    date: '2024-12-23',
   },
 };
 
