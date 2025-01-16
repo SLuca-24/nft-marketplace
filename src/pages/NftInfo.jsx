@@ -32,18 +32,18 @@ const NFTInfo = () => {
   const [isBidLoading, setIsBidLoading] = useState(false);
   const [timer, setTimer] = useState(null);
   const [remainingTime, setRemainingTime] = useState(null);
-  const [auctionStarted, setAuctionStarted] = useState(false); // Flag to track if auction has started
+  const [auctionStarted, setAuctionStarted] = useState(false);
   const [auctionActive, setAuctionActive] = useState(false);
   
 
   
 useEffect(() => {
-  // Verifica se esiste un timer attivo per l'NFT corrente
-  const timerKey = `timer_${id}`; // `id` è l'ID dell'NFT
-  const timerExists = !!localStorage.getItem(timerKey); // Controlla se il timer esiste nel local storage
+  
+  const timerKey = `timer_${id}`;
+  const timerExists = !!localStorage.getItem(timerKey);
 
-  setAuctionActive(timerExists); // Aggiorna lo stato di auctionActive
-}, [id]); // Effettua il controllo ogni volta che cambia l'ID dell'NFT
+  setAuctionActive(timerExists);
+}, [id]);
 
 
 
@@ -52,11 +52,10 @@ useEffect(() => {
   useEffect(() => {
     const storedBids = JSON.parse(localStorage.getItem(`bids_${id}`)) || [];
     setBids(storedBids);
-  
-    // Recupera il timer salvato da localStorage
+ 
     const storedTimerEnd = localStorage.getItem(`timer_${id}`);
     if (storedTimerEnd) {
-      setTimer(parseInt(storedTimerEnd));  // Imposta il timer dal localStorage
+      setTimer(parseInt(storedTimerEnd));
     }
   }, [id]);
 
@@ -65,7 +64,7 @@ useEffect(() => {
   useEffect(() => {
     if (!timer) return;
   
-    // Salva il timer in localStorage ogni volta che cambia
+
     localStorage.setItem(`timer_${id}`, timer);
   
     const interval = setInterval(() => {
@@ -73,7 +72,7 @@ useEffect(() => {
       if (remaining <= 0) {
         clearInterval(interval);
         setTimer(null);
-        handleAuctionEnd();  // Chiamata alla fine dell'asta
+        handleAuctionEnd();
       } else {
         setRemainingTime(remaining);
       }
@@ -94,9 +93,9 @@ useEffect(() => {
 
 
   
-  //1 Quando una nuova offerta viene fatta, imposta il timer se non è ancora iniziato
+ 
   const handleStartAuction = async () => {
-    if (auctionStarted) return;  // Se l'asta è già iniziata, non fare nulla
+    if (auctionStarted) return;
   
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
@@ -108,8 +107,8 @@ useEffect(() => {
       setAuctionStarted(true);
       alert("Auction started!");
   
-      // Imposta la scadenza del timer
-      const newTimerEnd = Date.now() + 30 * 60 * 1000; // 30 minuti
+
+      const newTimerEnd = Date.now() + 30 * 60 * 1000;
       setTimer(newTimerEnd);
 
       const activeAuctions = JSON.parse(localStorage.getItem("activeAuctions")) || {};
@@ -124,7 +123,7 @@ useEffect(() => {
 
   
   
-// 2. Funzione per effettuare un'offerta
+
 const handlePlaceBid = async () => {
   if (!bidAmount || isNaN(bidAmount) || bidAmount <= 0) {
     alert("Please enter a valid bid amount.");
@@ -136,11 +135,11 @@ const handlePlaceBid = async () => {
     return;
   }
 
-    // Recupera l'offerta più alta dall'array delle offerte salvato nel localStorage
+
     const storedBids = JSON.parse(localStorage.getItem(`bids_${id}`)) || [];
     const highestBid = storedBids.length > 0 ? Math.max(...storedBids.map(bid => parseFloat(bid.amount))) : 0;
   
-    // Verifica che la nuova offerta sia maggiore dell'offerta più alta
+
     if (parseFloat(bidAmount) <= highestBid) {
       alert(`Your bid must be higher than the current highest bid of ${highestBid} ETH.`);
       return;
@@ -160,7 +159,6 @@ const handlePlaceBid = async () => {
     const signer = provider.getSigner();
     const contract = new ethers.Contract(auctionContractAddress, auctionContractABI.abi, signer);
 
-    // Execute the bid transaction
     const tx = await contract.placeBid(id, {
       value: ethers.utils.parseEther(bidAmount),
     });
@@ -178,14 +176,14 @@ const handlePlaceBid = async () => {
 
 
     const currentTimerEnd = localStorage.getItem(`timer_${id}`);
-    const currentTime = Date.now(); // Aggiungi questa riga per definire currentTime
+    const currentTime = Date.now();
 
     if (!auctionStarted) {
-      await handleStartAuction();  // Avvia l'asta solo se non è già iniziata
+      await handleStartAuction();
     } else if (currentTimerEnd && currentTime < currentTimerEnd && currentTimerEnd - currentTime < 10 * 60 * 1000) {
-      // Se c'è un timer attivo e il tempo rimanente è inferiore a 10 minuti
-      const newTimerEnd = currentTime + 10 * 60 * 1000; // 5 minuti
-      setTimer(newTimerEnd);  // Estende il timer
+   
+      const newTimerEnd = currentTime + 10 * 60 * 1000;
+      setTimer(newTimerEnd);
       localStorage.setItem(`timerEnd_${id}`, newTimerEnd);
     } else {
       setTimer(currentTimerEnd);
@@ -206,13 +204,12 @@ const handlePlaceBid = async () => {
 
 
 
-  // 4. End auction and refund losers, assign winner
+
   const handleAuctionEnd = async () => {
-  // Verifica se l'asta è già terminata per evitare di eseguire l'azione più di una volta
   const auctionEnded = localStorage.getItem(`auction_ended_${id}`);
   if (auctionEnded) {
     console.log("Auction already ended.");
-    return; // Esce dalla funzione se l'asta è già terminata
+    return;
   }
 
   
@@ -222,50 +219,50 @@ const handlePlaceBid = async () => {
       const contract = new ethers.Contract(auctionContractAddress, auctionContractABI.abi, signer);
   
       try {
-        // Determina l'offerta più alta
+ 
         const highestBid = bids.reduce(
           (max, bid) => parseFloat(bid.amount) > parseFloat(max.amount) ? bid : max,
-          bids[0] // Imposta il primo bid come iniziale
+          bids[0]
         );
 
         console.log("Highest Bid Wallet for Auction ID:", id, " - Wallet:", highestBid.wallet);
 
   
-        // Chiamata per terminare l'asta
+   
         const tx = await contract.endAuction(id);
         await tx.wait();
 
-        // Segna l'NFT come venduto
+
         setIsSoldOut(true);
         setNft(prevNft => ({ ...prevNft, isSoldOut: true }));
         
-              // Aggiungi l'acquisto al local storage
+  
               const purchase = {
                 nftId: id,
                 wallet: highestBid.wallet,
                 date: new Date().toISOString(),
                 price: highestBid.amount,
-                title: nft.title,         // Aggiungi il titolo dell'NFT
-                imageUrl: nft.imageUrl,   // Aggiungi l'URL dell'immagine dell'NFT
+                title: nft.title,
+                imageUrl: nft.imageUrl,
               };
-              addPurchase(purchase);  // Passa l'oggetto con il titolo e l'immagine dell'NFT
+              addPurchase(purchase); 
 
 
-        // Aggiorna lo stato nel local storage
+
         const soldOutNFTs = JSON.parse(localStorage.getItem("soldOutNFTs")) || {};
         soldOutNFTs[id] = highestBid.wallet;
         localStorage.setItem("soldOutNFTs", JSON.stringify(soldOutNFTs));
 
 
 
-      // Imposta la flag per segnare che l'asta è terminata
+
       localStorage.setItem(`auction_ended_${id}`, true);
 
-      // Funzione per creare o aggiornare la lista delle aste concluse
+
       const endedAuctions = JSON.parse(localStorage.getItem('ended_auctions')) || [];
       if (!endedAuctions.includes(id)) {
-        endedAuctions.push(id);  // Aggiungi l'ID dell'asta conclusa
-        localStorage.setItem('ended_auctions', JSON.stringify(endedAuctions));  // Salva nel localStorage
+        endedAuctions.push(id);
+        localStorage.setItem('ended_auctions', JSON.stringify(endedAuctions));
       }
 
       console.log(`Auction ended flag set for auction_${id}: true`);
@@ -343,28 +340,28 @@ const handlePlaceBid = async () => {
 
     console.log("Checking auction status in the local storage...");
 
-    // Controlla nel local storage se esiste un timer attivo specifico per l'NFT
-    const timerKey = `timer_${id}`; // La chiave del timer per l'NFT corrente
-    const timerValue = localStorage.getItem(timerKey); // Recupera il valore del timer
+
+    const timerKey = `timer_${id}`;
+    const timerValue = localStorage.getItem(timerKey);
 
     if (timerValue) {
       console.log(`Timer found for NFT ID ${id}: ${timerValue}`);
       alert("Auction is still active for this NFT. The NFT cannot be purchased until the auction ends.");
-      setIsLoading(false); // Assicurati di fermare il caricamento
-      return; // Blocca l'acquisto se il timer è attivo
+      setIsLoading(false);
+      return;
     }
 
     console.log(`No active auction for NFT ID ${id}. Proceeding with the purchase...`);
 
     console.log(`Starting the purchase for NFT ID: ${id}, Price: ${nft.price} ETH`);
 
-    // Chiamata per trasferire i fondi e acquistare l'NFT
+
     const tx = await contract.transferMoney(id, {
       value: ethers.utils.parseEther(nft.price.toString()),
     });
     console.log("Transaction submitted:", tx);
 
-    // Aspetta che la transazione venga confermata
+
     await tx.wait();
     console.log(`NFT ID ${id} successfully bought!`);
 
@@ -372,12 +369,12 @@ const handlePlaceBid = async () => {
     setIsSoldOut(true);
     setNft((prevNft) => ({ ...prevNft, isSoldOut: true }));
 
-    // Marca l'NFT come venduto nel local storage
+
     const soldOutNFTs = JSON.parse(localStorage.getItem("soldOutNFTs")) || {};
     soldOutNFTs[id] = true;
     localStorage.setItem("soldOutNFTs", JSON.stringify(soldOutNFTs));
 
-    // Aggiunge l'acquisto al local storage
+
     addPurchase({
       id,
       buyerAddress,
@@ -428,7 +425,7 @@ const handlePlaceBid = async () => {
     auctionActive ? 'auction-active' : ''
   }`}
   onClick={isSoldOut || auctionActive ? null : handlePurchase}
-  disabled={isLoading || isSoldOut || auctionActive} // Disabilita il pulsante se il timer è attivo
+  disabled={isLoading || isSoldOut || auctionActive}
 >
   {isLoading ? (
     <div className="processing-message">
