@@ -1,42 +1,6 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "D:\\Desktop\\nft-marketplace-main\\contracts\\BuyContract.sol": {
-      "lastModificationDate": 1734692064127,
-      "contentHash": "9a3d329b81d35fc7d2549c7022e0831c",
-      "sourceName": "contracts/BuyContract.sol",
-      "solcConfig": {
-        "version": "0.8.27",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.27"
-      ],
-      "artifacts": [
-        "HandlePayment"
-      ]
-    },
     "D:\\Desktop\\nft-marketplace-main\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\ERC721.sol": {
       "lastModificationDate": 1729884060611,
       "contentHash": "a7951c81f7037d558c6d2f220b0cb38e",
@@ -606,10 +570,10 @@
         "NftContract"
       ]
     },
-    "D:\\Desktop\\nft-marketplace-main\\contracts\\BidContract.sol": {
-      "lastModificationDate": 1734865781328,
-      "contentHash": "99ce3a3990be8f4f00dfe1f319dcd1e9",
-      "sourceName": "contracts/BidContract.sol",
+    "D:\\Desktop\\nft-marketplace-main\\contracts\\HandlePayment.sol": {
+      "lastModificationDate": 1737574201190,
+      "contentHash": "ac276c0bd719ac359af9a8ba2d849b24",
+      "sourceName": "contracts/HandlePayment.sol",
       "solcConfig": {
         "version": "0.8.27",
         "settings": {
@@ -636,16 +600,16 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.0"
+        "^0.8.27"
       ],
       "artifacts": [
-        "NFTMarketplaceAuction"
+        "HandlePayment"
       ]
     },
-    "D:\\Desktop\\nft-marketplace-main\\contracts\\AuctionContract.sol": {
-      "lastModificationDate": 1735229644270,
-      "contentHash": "2d797b0ca5addaa909629314a60e6375",
-      "sourceName": "contracts/AuctionContract.sol",
+    "D:\\Desktop\\nft-marketplace-main\\contracts\\NFTAuction.sol": {
+      "lastModificationDate": 1737576067151,
+      "contentHash": "8e6f4ac740b6301e99baf2d9bbb44701",
+      "sourceName": "contracts/NFTAuction.sol",
       "solcConfig": {
         "version": "0.8.27",
         "settings": {
@@ -676,6 +640,42 @@
       ],
       "artifacts": [
         "NFTAuction"
+      ]
+    },
+    "D:\\Desktop\\nft-marketplace-main\\contracts\\TransferNft.sol": {
+      "lastModificationDate": 1737662882936,
+      "contentHash": "ceeb803241efe1a46dbe1680747ec852",
+      "sourceName": "contracts/TransferNft.sol",
+      "solcConfig": {
+        "version": "0.8.27",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "TransferNft"
       ]
     }
   }

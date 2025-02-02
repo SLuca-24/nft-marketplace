@@ -97,6 +97,14 @@
   cursor: not-allowed;
 }
 
+.transfer-button.waiting {
+  background-color: #ddd;
+  color: black; /* Colore arancione per l'attesa */
+  cursor: progress; /* Cambia il cursore durante l'attesa */
+}
+
+
+
 .Connect-Wallet-Error-Transfer-Page {
   background-color: #f8d7da;
   color: #721c24;

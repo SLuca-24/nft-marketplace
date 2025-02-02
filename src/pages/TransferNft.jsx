@@ -3,6 +3,8 @@ import { useWallet } from '../components/context/WalletContext';
 import { NFTData as initialNFTData } from '../components/nftData';
 import '../components/styles/transfer-nft.scss';
 import { ethers } from 'ethers';
+import TransferNftArtifact from '../contracts-abi/TransferNft.json'
+const abi = TransferNftArtifact.abi;
 
 
 const TransferNFT = () => {
@@ -12,6 +14,9 @@ const TransferNFT = () => {
   const [NFTData, setNFTData] = useState(initialNFTData);
   const [selectedNFT, setSelectedNFT] = useState(null);
   const [recipientAddress, setRecipientAddress] = useState('');
+  const [isWaitingForTransaction, setIsWaitingForTransaction] = useState(false);
+
+  const contractAddress = "0x5f0163d0888aed91d9D1Bee969D2948893a010A5";
 
   useEffect(() => {
     if (isWalletConnected && account) {
@@ -45,6 +50,7 @@ const TransferNFT = () => {
     try {
       if (nftString) {
         const nft = JSON.parse(nftString);
+        console.log("NFT selected:", nft);
         setSelectedNFT(nft);
       } else {
         setSelectedNFT(null);
@@ -53,64 +59,80 @@ const TransferNFT = () => {
       console.error('Error parsing NFT string:', error);
     }
   };
+  
 
-  const handleTransfer = () => {
+  const handleTransfer = async () => {
     if (!selectedNFT || !recipientAddress) {
       alert('Select an NFT and enter a valid recipient address');
       return;
     }
-  
     if (!ethers.utils.isAddress(recipientAddress)) {
       alert("The address entered is not valid. Please enter a correct Ethereum address");
       return;
     }
-  
     if (recipientAddress.toLowerCase() === account.toLowerCase()) {
       alert("You cannot transfer an NFT to yourself");
       return;
     }
-    if (selectedNFT && recipientAddress) {
-      const transferDetails = {
-        from: account,
-        to: recipientAddress,
-        nftTitle: selectedNFT.title,
-        nftId: selectedNFT.id,
-        imageUrl: selectedNFT.imageUrl, 
-        timestamp: new Date().toISOString(),
-      };
-
-      const existingTransfers = JSON.parse(localStorage.getItem('nft-transfers')) || [];
-      existingTransfers.push(transferDetails);
-      localStorage.setItem('nft-transfers', JSON.stringify(existingTransfers));
-
-      alert(`Trasferito ${selectedNFT.title} a ${recipientAddress}`);
-
-      const allPurchases = JSON.parse(localStorage.getItem('purchases')) || {};
-      const updatedPurchases = allPurchases[account].filter(nft => nft.id !== selectedNFT.id);
-      allPurchases[account] = updatedPurchases;
-      if (allPurchases[recipientAddress]) {
-        const recipientPurchases = allPurchases[recipientAddress];
-
-        const existingNFTIndex = recipientPurchases.findIndex(nft => nft.id === selectedNFT.id);
-
-        if (existingNFTIndex > -1) {
-          recipientPurchases[existingNFTIndex].buyerAddress = recipientAddress;
-        } else {
-          recipientPurchases.push({ ...selectedNFT, buyerAddress: recipientAddress });
-        }
-      } else {
-        allPurchases[recipientAddress] = [{ ...selectedNFT, buyerAddress: recipientAddress }];
+  
+    try {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(contractAddress, abi, signer);
+  
+      if (!selectedNFT.nftId) {
+        alert("NFT ID is invalid");
+        return;
       }
-
-      localStorage.setItem('purchases', JSON.stringify(allPurchases));
-      setPurchasedNFTs(updatedPurchases);
-
-      setSelectedNFT(null);
-      setRecipientAddress('');
-    } else {
-      alert('Select an NFT and enter a valid recipient address.');
+      console.log("NFT ID:", selectedNFT.nftId);
+      setIsWaitingForTransaction(true);
+      const tx = await contract.sendnft( recipientAddress, selectedNFT.nftId);
+  
+      const receipt = await tx.wait();
+      setIsWaitingForTransaction(false);
+  
+      if (receipt.status === 1) {
+        const transferDetails = {
+          from: account,
+          to: recipientAddress,
+          nftTitle: selectedNFT.title,
+          nftId: selectedNFT.nftId,
+          imageUrl: selectedNFT.imageUrl,
+          timestamp: new Date().toISOString(),
+          transactionHash: receipt.transactionHash,
+        };
+  
+        const existingTransfers = JSON.parse(localStorage.getItem('nft-transfers')) || [];
+        existingTransfers.push(transferDetails);
+        localStorage.setItem('nft-transfers', JSON.stringify(existingTransfers));
+  
+        alert(`Successfully transferred ${selectedNFT.title} to ${recipientAddress}\nTransaction Link: https://sepolia.etherscan.io/tx/${receipt.transactionHash}`);
+  
+        const allPurchases = JSON.parse(localStorage.getItem('purchases')) || {};
+        const updatedPurchases = allPurchases[account].filter(nft => nft.nftId !== selectedNFT.nftId);
+        allPurchases[account] = updatedPurchases;
+  
+        if (allPurchases[recipientAddress]) {
+          allPurchases[recipientAddress].push({ ...selectedNFT, buyerAddress: recipientAddress });
+        } else {
+          allPurchases[recipientAddress] = [{ ...selectedNFT, buyerAddress: recipientAddress }];
+        }
+  
+        localStorage.setItem('purchases', JSON.stringify(allPurchases));
+        setPurchasedNFTs(updatedPurchases);
+        setSelectedNFT(null);
+        setRecipientAddress('');
+      } else {
+        alert("Transaction failed. Please try again.");
+      }
+    } catch (error) {
+      setIsWaitingForTransaction(false);
+      console.error("Error during NFT transfer:", error);
+      alert("An error occurred during the transfer. Please try again.");
     }
   };
+  
+  
 
   return (
     <div className={isWalletConnected ? "transfer-nft-page" : ""}>
@@ -151,8 +173,12 @@ const TransferNFT = () => {
             />
           </div>
 
-          <button className='transfer-button' onClick={handleTransfer} disabled={!selectedNFT || !recipientAddress}>
-            Transfer
+          <button
+            className={`transfer-button ${isWaitingForTransaction ? 'waiting' : ''}`}
+            onClick={handleTransfer}
+            disabled={!selectedNFT || !recipientAddress || isWaitingForTransaction}
+          >
+            {isWaitingForTransaction ? 'Waiting for transaction...' : 'Transfer'}
           </button>
         </div>
       ) : (
