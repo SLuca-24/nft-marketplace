@@ -15,24 +15,28 @@ const Account: React.FC  = () => {
 <Link to="/">
       <div className={`icon-item ${location.pathname === '/' ? 'active' : ''}`} title="Home">
       <IoHome />
+      <span className="nav-label">Home</span>
       </div>
       </Link>
 
     <Link to="/purchase-history">
     <div className={`icon-item ${location.pathname === '/purchase-history' ? 'active' : ''}`} title="Purchase History">
       <BiSolidPurchaseTag />
+      <span className="nav-label">History</span>
       </div>
       </Link>
       
       <Link to="/swap">
-      <div className={`icon-item ${location.pathname === '/swap' ? 'active' : ''}`} title="Transfern Nft's">
+      <div className={`icon-item ${location.pathname === '/swap' ? 'active' : ''}`} title="Transfer Nft's">
       <PiSwapBold />
+      <span className="nav-label">Transfer</span>
       </div>
       </Link>
 
       <Link to="/gallery">
       <div className={`icon-item ${location.pathname === '/gallery' ? 'active' : ''}`} title="Nft's Gallery">
-      <LuGalleryVerticalEnd />  
+      <LuGalleryVerticalEnd /> 
+      <span className="nav-label">Gallery</span>
       </div>
       </Link>
     </div>

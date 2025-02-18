@@ -80,13 +80,11 @@ const TransferNFT = () => {
       const signer = provider.getSigner();
       const contract = new ethers.Contract(contractAddress, abi, signer);
   
-      if (!selectedNFT.nftId) {
-        alert("NFT ID is invalid");
-        return;
-      }
-      console.log("NFT ID:", selectedNFT.nftId);
+      const nftIdToSend = selectedNFT.nftId || "NFT";
+      console.log("NFT ID:", nftIdToSend);
+
       setIsWaitingForTransaction(true);
-      const tx = await contract.sendnft( recipientAddress, selectedNFT.nftId);
+      const tx = await contract.sendnft( recipientAddress, nftIdToSend);
   
       const receipt = await tx.wait();
       setIsWaitingForTransaction(false);

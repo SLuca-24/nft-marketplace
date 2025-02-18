@@ -8,7 +8,7 @@ contract NFTAuction {
         bool isActive;
     }
 
-    address public beneficiary = 0xF1cdf08ED6Bfdf845AaD575B08bE1c56E5128a25;
+    address public beneficiary;
 
     mapping(uint256 => Auction) public auctions;
 
@@ -16,7 +16,9 @@ contract NFTAuction {
     event BidPlaced(uint256 nftId, address bidder, uint256 amount);
     event AuctionEnded(uint256 nftId, address winner, uint256 amount);
 
-    constructor() {}
+    constructor(address _beneficiary) {
+        beneficiary = _beneficiary;
+    }
 
 
 

@@ -46,7 +46,6 @@
                max-width: 95%;
               }
                }
-       
   
 
   .icon-item {
@@ -62,6 +61,7 @@
     transition: color 0.3s ease;
     font-size: 1.6rem;
     transition: color 0.3s ease;
+    
   }
 
   .icon-item:hover {
@@ -73,7 +73,15 @@
     color:  black;
   }
 
+  .nav-label {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: block;
+  }
 
+  .icon-bar a {
+    text-decoration: none;
+  }
 
 
   @media (max-width: 630px){
@@ -83,3 +91,8 @@
   }
   }
   
+  @media (max-width: 900px) {
+    .nav-label {
+      display: none;
+    }
+  }
